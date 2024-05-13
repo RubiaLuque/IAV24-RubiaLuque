@@ -38,7 +38,7 @@ Todo el código se escribirá en inglés a excepción de los comentarios, que se
 
 Se trata de un algoritmo iterativo en el que en cada iteración se exploran las conexiones del nodo actual y en los registros de sus nodos hijos se guarda en coste hasta el momento. Hasta aquí es como usar Dijkstra, pero la diferencia entre ambos algoritmos radica en que A* al coste real se le suma la estimación de la función heurística y se guarda el resultado: la estimación del coste total del mejor camino origen-destino que pasa por ese nodo.
 
-Se usará en los enemigos y se le dará unicamente al líder de cada grupo que encabezará la marcha. El resto de integrantes se deberán de posicionar con respecto a dicho líder. De esta manera, se aumenta la eficacia del código y de compartimentaliza la funcionalidad.
+Se usará en los enemigos y se le dará unicamente al líder de cada grupo que encabezará la marcha. El resto de integrantes se deberán de posicionar con respecto a dicho líder. De esta manera, se aumenta la eficacia del código y se compartimentaliza la funcionalidad.
 
 ```
 function pathfindStar(graph: Graph. start: Node, end: Node, heuristic: Heuristic) -> Connection[]:
@@ -151,6 +151,13 @@ function pathfindStar(graph: Graph. start: Node, end: Node, heuristic: Heuristic
         # Se le da la vuelta al path y se devuelve
         return reverse(path)
 ```
+
+<br>
+
+Para el compoortamiento del resto de integrantes del grupo se usará: 
+
+
+<br>
 
 ## Pruebas y métricas
 

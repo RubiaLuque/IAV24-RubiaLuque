@@ -5,13 +5,22 @@
 
 <br>
 
+> [!CAUTION]
+> La licencia sobre la herramienta ........ incluída en este repositorio no es de uso libre. Se recomienda no usar sin disponer de una licencia válida. Se encuentra aquí disponible debido a que no se ha podido retirar para el correcto funcionamiento de la versión final del proyecto. No me hago cargo de las responsabilidades legales que puedan recaer sobre quien haga uso de estas herramientas sin autorización previa del propietario original. El uso de esta herramienta en este repositorio tiene únicamente la finalidad de aportar académicamente a un trabajo universitario sin ánimo de lucro ni difusión.
+
+<br>
+
 ## Autor
 - Muxu Rubia Luque ([RubiaLuque](https://github.com/RubiaLuque))
 <br>
 
 ## Propuesta
 
+Este se trata del proyecto final de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos en la UCM. 
 
+Este proyecto consiste en la creación de un prototipo de IA que se basa en el movimiento en grupo y persecución al jugador. El juego se desarrolla en un mundo en 3D y tiene un sistema basado en juegos roguelike de acción. Consta de dos mapas con puntos de spawn en los que se suceden oleadas de enemigos que el protagonista debe abatir antes de poder pasar de mapa o nivel y así salir de la mazmorra en la que está encerrado. La IA irá guiando a cada grupo de enemigos, formado de 3 a 5 fanasmas, hacia el jugador para atacarle. Estos fantasmas están encabezados por un líder que determina la marcha. El objetivo es mantener la formación durante el trayecto mientras se esquivan obstáculos o se pasan por pasillos estrechos. Se requiere de adaptabilidad y flexibilidad para acercarse al jugador, desaciendo las posiciones cuando se requiera y volviendo a recomponerse después. Habrá diferentes tipos de formaciones grupales de enemigos.
+
+<br>
 
 ## Punto de partida
 Se parte de un proyecto base de **Unity 2022.3.5f1** 
@@ -31,115 +40,88 @@ Todo el código se escribirá en inglés a excepción de los comentarios, que se
 ## Pruebas y métricas
 
 
-Característica A: Mundo virtual
+Característica A: Movimiento del personaje y cámara
 <table>
     <tr>
         <th><b>A.1</b></th>
-        <th>Probar en el nivel 1 el movimiento de robot.</th>
+        <th>Probar el movimiento correcto con WASD del protagonista.</th>
     </tr>
      <tr>
         <th><b>A.2</b></th>
-        <th>Probar que funciona el zoom en todos los niveles.</th>
+        <th>Seguimiento correcto de la cámara al jugador.</th>
     </tr>
     
 </table>
 <br>
-Característica B: Puertas y escondites
+Característica B: Creación de los dos niveles
 <table>
     <tr>
         <th><b>B.1</b></th>
-        <th>Las puertas, cuando están cerradas, bloquean tanto la visibilidad de los guardias como el movimiento de todos los robots. </th>
+        <th>Comprobar que los puntos de spawn funcionan correctamente. </th>
     </tr>
     <tr>
         <th><b>B.2</b></th>
-        <th>Los escondites bloquean la visibilidad de los guardias.</th>
-    </tr>
-    <tr>
-        <th><b>B.3</b></th>
-        <th>Las paredes bloquean la visibilidad de los guardias.</th>
+        <th>...</th>
     </tr>
     
 </table>
 <br>
-Característica C: Guardias
+Característica C: Ciclo de juego
 <table>
     <tr>
         <th><b>C.1</b></th>
-        <th>Cuando están en idle, los guardias permanecen en un estado de patrulla empezando y acabando en su base. Comprobar en dos guardias distintos sus puntos de patrulla.</th>
+        <th>Comrpobar que se pasa correctamente del nivel 1 al 2 al derrotar a todos los enemigos del 1.</th>
     </tr>
     <tr>
         <th><b>C.2</b></th>
-        <th>Si detectan al jugador con su campo de visión, los guardias empiezan a perseguirlo y dispararle.</th>
-    </tr>
-    <tr>
-        <th><b>C.3</b></th>
-        <th>Al matar al jugador o perderlo de vista, los guardias vuelven a patrullar.</th>
-    </tr>
-     <tr>
-        <th><b>C.4</b></th>
-        <th>Comprobar que al quedarse sin munición, los guardias vuelven a su base a recargar.</th>
+        <th>Comprobar que se acaba el juego y se vuelve al menú cuando se acaba con todos los enemigos del nivel 2.</th>
     </tr>
 </table>
 <br>
-Característica D: Árbol de comportamientos
+Característica D: Persecución con A*
 <table>
     <tr>
         <th><b>D.1</b></th>
-        <th>Probar si la IA es capaz de sacar a Néstor del escenario de ejemplo con vida.</th>
-    </tr>
-   <tr>
-        <th><b>D.2</b></th>
-        <th>Néstor cambia su rumbo y recarga vida cuando le queda menos de 1/3.</th>
+        <th>Comprobar que el lider de la formación puede trazar un camino óptimo hacia el jugador esquivando obstáculos.</th>
     </tr>
 </table>
 <br>
-Característica E: Memoria
+Característica E: Movmiento el grupo
 <table>
     <tr>
         <th><b>E.1</b></th>
-        <th>Teniendo memoria, la IA puede sacar a Néstor con vida del nivel 1.</th>
+        <th>Probar que la formación puede adaptarse a pasillos estrechos del nivel 2.</th>
     </tr>
   <tr>
         <th><b>E.2</b></th>
-        <th>Teniendo memoria, la IA puede sacar a Néstor con vida del nivel 2.</th>
+        <th>Probar que la formación puede rodear los obtáculos del nivel 1.</th>
     </tr>
   <tr>
         <th><b>E.3</b></th>
-        <th>Teniendo memoria, la IA puede sacar a Néstor con vida del nivel 3 (nivel prueba).</th>
+        <th>Probar que hay una formación que avanza en línea horizontal.</th>
     </tr>
 </table>
 <br>
 
-- [Vídeo con la batería de pruebas](https://youtu.be/Gc9cRzQK4xI)
-
-Por si acaso no va el vídeo en youtube porque lleva una hora procesándose: 
-[Enlace a drive](https://drive.google.com/file/d/1g9pz_VC4k-2DsYKUajGFlNIrj6LF4NeT/view?usp=sharing)
-
-<br><br><br>
+<br>
 
 
 
 ## Producción
 
-Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores. Esto queda documentado en la tabla siguiente de manera general, aunque se encuentra más profundamente documentado en la [pestaña de Proyectos actualizada](https://github.com/orgs/IAV24-G10/projects/3) de GitHub.
 
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
-| ✔ | Diseño: Documentación inicial | 18-04-2024 |
-| ✔ | Característica A: Mundo virtual | 28-04-2024 |
-| ✔ | Característica B: Puertas | 28-04-2024 |
-| ✔ | Característica C: Guardias | 28-04-2024 |
-| ✔ | Característica D: Protagonista | 28-04-2024 |
-| ✔ | Característica E: Pizarra | 28-04-2024 |
-| ✔ | Diseño: Documentación final | 28-04-2024 |
-| :x: | Vídeo | 28-04-2024 |
-|   |  | |
-|  | OPCIONAL |  |
-| :x: | Movimiento e interacción con ratón y WASD. Cambio con barra espaciadora | - |
-| :x: | Máquina de estados jerárquica para los guardias | - |
-| :x: | Escenario con geometría compleja 3D. Varios niveles. | - |
-| :x: | Mecanismos más complejos de escenario (puertas giratorias, ascensores...) | - |
-| :x: | Mejora de gestión sensorial del protagonista con retroalimentación visual | - |
+| :x: | Diseño: Documentación inicial | 16-05-2024 |
+| :x: | Característica A: Movimiento del personaje y cámara | 28-05-2024 |
+| :x: | Característica B: Creación de los dos niveles | 28-05-2024 |
+| :x: | Característica C: Ciclo de juego | 28-05-2024 |
+| :x: | Característica D: Persecución con A* | 28-05-2024 |
+| :x: | Característica E: Movimiento en grupo | 28-05-2024 |
+| :x: | Diseño: Documentación final | 28-05-2024 |
+| :x: | Vídeo | 28-05-2024 |
+
+
 
 
 <br><br>
@@ -149,11 +131,4 @@ Las tareas se han realizado y el esfuerzo ha sido repartido entre los autores. E
 Los recursos de terceros utilizados son de uso público.
 
 - *AI for Games*, Ian Millington.
-- [Behaviour Bricks Documentation](https://bb.padaonegames.com/)
-- [Kaykit Medieval Builder Pack](https://kaylousberg.itch.io/kaykit-medieval-builder-pack)
-- [Federico Peinado, Robot a la Fuga, Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/decision/robot-a-la-fuga/)
-- [Federico Peinado, Representación del conocimiento, Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/decision/representacion-del-conocimiento/)
-- [Fededrico Peinado, Máquina de estados, Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/decision/maquina-de-estados/)
-- [Federico Peinado, Árbol de comportamiento, Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/decision/arbol-de-comportamiento/)
-- [Federico Peinado, Reglas y planificación, Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/decision/reglas-y-planificacion/)
-- [Federico Peinado, Probabilidad y utilidad, Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/decision/probabilidad-y-utilidad/)
+

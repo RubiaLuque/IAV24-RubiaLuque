@@ -1,0 +1,570 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.5f1 (9674261d40ee) revision 9860134'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'es' Physical Memory: 16165 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2022.3.5f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/littl/Documents/GitHub/IAV24-RubiaLuque/FantasmitosIA
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+7227
+Successfully changed project path to: C:/Users/littl/Documents/GitHub/IAV24-RubiaLuque/FantasmitosIA
+C:/Users/littl/Documents/GitHub/IAV24-RubiaLuque/FantasmitosIA
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [32832] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3533666059 [EditorId] 3533666059 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-2GB8N19) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [32832] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3533666059 [EditorId] 3533666059 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-2GB8N19) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 16.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.5f1 (9674261d40ee)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.5f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/littl/Documents/GitHub/IAV24-RubiaLuque/FantasmitosIA/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f15)
+    Vendor:   NVIDIA
+    VRAM:     5955 MB
+    Driver:   31.0.15.5123
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2022.3.5f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56748
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2022.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.011340 seconds.
+- Loaded All Assemblies, in  0.432 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.329 seconds
+Domain Reload Profiling: 758ms
+	BeginReloadAssembly (111ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (78ms)
+	LoadAllAssembliesAndSetupDomain (176ms)
+		LoadAssemblies (107ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (167ms)
+			TypeCache.Refresh (166ms)
+				TypeCache.ScanAssembly (151ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (330ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (256ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (174ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.935 seconds
+Refreshing native plugins compatible for Editor in 6.70 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.678 seconds
+Domain Reload Profiling: 1609ms
+	BeginReloadAssembly (164ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (64ms)
+	LoadAllAssembliesAndSetupDomain (637ms)
+		LoadAssemblies (350ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (365ms)
+			TypeCache.Refresh (341ms)
+				TypeCache.ScanAssembly (324ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (679ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (505ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (78ms)
+			ProcessInitializeOnLoadAttributes (379ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 4.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3081 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (56.7 KB). Loaded Objects now: 3545.
+Memory consumption went from 116.9 MB to 116.8 MB.
+Total: 4.586800 ms (FindLiveObjects: 0.264500 ms CreateObjectMapping: 0.280000 ms MarkObjects: 3.941300 ms  DeleteObjects: 0.099900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1246530.937993 seconds.
+  path: Assets/manifest.json
+  artifactKey: Guid(0c365b508c0ac054684b6a1bd6d1b5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/manifest.json using Guid(0c365b508c0ac054684b6a1bd6d1b5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f3edb17d20bd21128ce6c8a3caf34f6') in 0.012084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.933 seconds
+Refreshing native plugins compatible for Editor in 4.83 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.088 seconds
+Domain Reload Profiling: 2015ms
+	BeginReloadAssembly (176ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (640ms)
+		LoadAssemblies (348ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (373ms)
+			TypeCache.Refresh (350ms)
+				TypeCache.ScanAssembly (338ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1088ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (466ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (90ms)
+			ProcessInitializeOnLoadAttributes (327ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 4.93 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3678 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (108.0 KB). Loaded Objects now: 4178.
+Memory consumption went from 127.3 MB to 127.2 MB.
+Total: 3.674000 ms (FindLiveObjects: 0.322200 ms CreateObjectMapping: 0.320800 ms MarkObjects: 2.934300 ms  DeleteObjects: 0.095400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 793.649035 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/BehaviorSelection.cs
+  artifactKey: Guid(10af8064b472cac469fc478c944aca9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/BehaviorSelection.cs using Guid(10af8064b472cac469fc478c944aca9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '456cf781bcf061a660e30c42c1e3d085') in 0.003843 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 10.098330 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks
+  artifactKey: Guid(3f2306bba52759442aa014312d102502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks using Guid(3f2306bba52759442aa014312d102502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b527f4d3156612c200273ce5b6ef2e94') in 0.000639 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.071533 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Arc.cs
+  artifactKey: Guid(dd51961d7c77b9443b8d8136becd8bba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Arc.cs using Guid(dd51961d7c77b9443b8d8136becd8bba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '305b8f2797f3aed57939780657cf590b') in 0.001458 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.644372 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Circle.cs
+  artifactKey: Guid(1f26fc5ed5a0c92478d884f09ebc73bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Circle.cs using Guid(1f26fc5ed5a0c92478d884f09ebc73bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01e6fa8924fbfe8352b2187b62e9b965') in 0.000614 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.668348 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Column.cs
+  artifactKey: Guid(61147894b3f202b489051c270c00ecf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Column.cs using Guid(61147894b3f202b489051c270c00ecf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79b44254dc9c4f52fb4024dcecfef267') in 0.000575 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.046136 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Diamond.cs
+  artifactKey: Guid(c58b039dec9738c4fb23062d16604c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Diamond.cs using Guid(c58b039dec9738c4fb23062d16604c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fc40d0a7f6bcf10e45c05b2a8274ddb') in 0.001605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 51.683721 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Echelon.cs
+  artifactKey: Guid(7632d13321618b9479ff01de65876adb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Echelon.cs using Guid(7632d13321618b9479ff01de65876adb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c18b3ae21f32b263c995f1dd8e342f38') in 0.001790 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 5.003041 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/FormationAgent.cs
+  artifactKey: Guid(62b58599ef8c42c4a958b67b12fa6082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/FormationAgent.cs using Guid(62b58599ef8c42c4a958b67b12fa6082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37572265e093058984d99cc5b364915b') in 0.001474 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.890657 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/FormationGroup.cs
+  artifactKey: Guid(5cb4b841271ec5f41be235ed63e4e324) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/FormationGroup.cs using Guid(5cb4b841271ec5f41be235ed63e4e324) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '349a94bf044b9a3c509d428b28eb40df') in 0.000591 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.646270 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Grid.cs
+  artifactKey: Guid(12e1193289dfe1043b7fad3dc52f9a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Grid.cs using Guid(12e1193289dfe1043b7fad3dc52f9a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33f25cb5f4f8b1cb65ab34763bda6a24') in 0.001612 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.436130 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Skirmisher.cs
+  artifactKey: Guid(ceae5d5eff0c93143a58051a15b52939) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Skirmisher.cs using Guid(ceae5d5eff0c93143a58051a15b52939) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f81c5c677974b294a9b103b91f16ea33') in 0.001716 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.732561 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Row.cs
+  artifactKey: Guid(b77f1db2e779e97409fc27651b40a89a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Row.cs using Guid(b77f1db2e779e97409fc27651b40a89a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aebaca185ab4af7327c0af56b1e00ad1') in 0.001551 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.200519 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Triangle.cs
+  artifactKey: Guid(efde90d4751e00e428f5a45eef20cfb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Triangle.cs using Guid(efde90d4751e00e428f5a45eef20cfb7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92cebd1b58f4e3ddbef66990f0792070') in 0.000580 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2.007297 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/V.cs
+  artifactKey: Guid(1768192494c2b914ebb1d2660aaa6320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/V.cs using Guid(1768192494c2b914ebb1d2660aaa6320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed68b1d3c41e5a7a6c7a7766510f380e') in 0.001427 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 25.409886 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Wedge.cs
+  artifactKey: Guid(543937dfec689b9418e3243246b080e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Wedge.cs using Guid(543937dfec689b9418e3243246b080e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '84d66c6077fe044bcdc6b0240196ceeb') in 0.000604 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 12.987901 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Square.cs
+  artifactKey: Guid(f54de53cbec9fbb42a1a8388f2fd8c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Square.cs using Guid(f54de53cbec9fbb42a1a8388f2fd8c7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ee6519adf82e7d86c10527126e10ca2') in 0.000618 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 158.493987 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Swarm.cs
+  artifactKey: Guid(909d7805334d233489410ef3c64af9ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Swarm.cs using Guid(909d7805334d233489410ef3c64af9ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0cca5fe83c5a0b941e2653caac69318') in 0.000730 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 21.389277 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/Line.cs
+  artifactKey: Guid(f56c3f0bb5eaec84cb7160b46ba81b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/Line.cs using Guid(f56c3f0bb5eaec84cb7160b46ba81b98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '761829825cd6bfbd778a589e239b02da') in 0.000559 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 46.339484 seconds.
+  path: Assets/Behavior Designer Formations/Scripts/Tasks/NavMeshFormationGroup.cs
+  artifactKey: Guid(acd259c633c356b478034861f56f2f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Formations/Scripts/Tasks/NavMeshFormationGroup.cs using Guid(acd259c633c356b478034861f56f2f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ef70f9f1ef34f8c9b3b93a0077d7b19') in 0.001425 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1259.213503 seconds.
+  path: Assets/Behavior Designer Movement/Scripts/BehaviorSelection.cs
+  artifactKey: Guid(536f005415e86134c98218681c66ba3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/Scripts/BehaviorSelection.cs using Guid(536f005415e86134c98218681c66ba3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a378a1fe507396c7540867eda421fafc') in 0.001602 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.446200 seconds.
+  path: Assets/Behavior Designer Movement/Scripts/GroupMovement.cs
+  artifactKey: Guid(c505248b675e9fd49abace0e3b07a43e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/Scripts/GroupMovement.cs using Guid(c505248b675e9fd49abace0e3b07a43e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dc150f6103d7b38a4feded93007544a') in 0.000672 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 5.298371 seconds.
+  path: Assets/Behavior Designer Movement/Scripts/Movement.cs
+  artifactKey: Guid(1b7d848585dc1fb4ea7b235e94d12ad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/Scripts/Movement.cs using Guid(1b7d848585dc1fb4ea7b235e94d12ad3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8191616c4c99dce6f1b99165b8cf017') in 0.000584 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.647197 seconds.
+  path: Assets/Behavior Designer Movement/Scripts/MovementUtility.cs
+  artifactKey: Guid(23cee7cf3a3935c40ab4acc084e400e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/Scripts/MovementUtility.cs using Guid(23cee7cf3a3935c40ab4acc084e400e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45c209f9a6a80d6716f167830cf92df1') in 0.000603 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 110.466635 seconds.
+  path: Assets/Behavior Designer Movement/GUISkin.guiskin
+  artifactKey: Guid(36eff75c3a960b74bbd5999b301b60ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/GUISkin.guiskin using Guid(36eff75c3a960b74bbd5999b301b60ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0b53abf0efd729e2bcd4119822a3c53') in 0.019148 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 2.139232 seconds.
+  path: Assets/Behavior Designer Movement/FactoryRoom_1.cubemap
+  artifactKey: Guid(94434815c5cb40340ac2e6717cbd2dee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/FactoryRoom_1.cubemap using Guid(94434815c5cb40340ac2e6717cbd2dee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77e29619d6c2991669fc858247500568') in 0.100435 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 3.907637 seconds.
+  path: Assets/Behavior Designer Movement/enemy_Spider_AlertSound.wav
+  artifactKey: Guid(68a02d834e9e6e34fa3fa2a492571682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Movement/enemy_Spider_AlertSound.wav using Guid(68a02d834e9e6e34fa3fa2a492571682) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1cc306c95ba9432bf1b94f15eeed228') in 0.038862 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 114.885309 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Defend.cs
+  artifactKey: Guid(fe2d7f63b204d7046a5ed588e65aac95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Defend.cs using Guid(fe2d7f63b204d7046a5ed588e65aac95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a038e4e24cf0f411206e20bd6e6705f') in 0.001653 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 7.660755 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Charge.cs
+  artifactKey: Guid(695fac5b202c57a468109f03fffd548e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Charge.cs using Guid(695fac5b202c57a468109f03fffd548e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92502908fbac618bfff9c0b514193fc3') in 0.001664 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 7.076402 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Attack.cs
+  artifactKey: Guid(bbc3de51a2982b743a663e355136e2c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Attack.cs using Guid(bbc3de51a2982b743a663e355136e2c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5bc0f623b2e594b87ac9b9191940e26') in 0.001735 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 7.129791 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Ambush.cs
+  artifactKey: Guid(0f5a8415f04a4214ea7415a5e01518f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Ambush.cs using Guid(0f5a8415f04a4214ea7415a5e01518f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ceacd417ffb641413f429e205f772b1') in 0.000605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 165.577524 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Flank.cs
+  artifactKey: Guid(cbf463963cc3eca458ba0f7c91ec5cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Flank.cs using Guid(cbf463963cc3eca458ba0f7c91ec5cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f33e7683d6f2374a59786314a6f42fe0') in 0.002160 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 28.442095 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Hold.cs
+  artifactKey: Guid(e0117f43e5deef64495f070cc026566b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Hold.cs using Guid(e0117f43e5deef64495f070cc026566b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f3439df3dd910345d96862ea5dec861') in 0.001742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 17.464608 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/MarchingFire.cs
+  artifactKey: Guid(415c7de66bf62cb41912276ef8875734) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/MarchingFire.cs using Guid(415c7de66bf62cb41912276ef8875734) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dd6f1d269b5bc2c0f4139b1516cdd28') in 0.001633 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 20.400144 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/NavMeshTacticalGroup.cs
+  artifactKey: Guid(5b11a9cf98a937f4c96a0ec503881062) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/NavMeshTacticalGroup.cs using Guid(5b11a9cf98a937f4c96a0ec503881062) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601fbd54c3a61b87fc45d470550d8131') in 0.001885 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 11.173405 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/ReinforcementsResponse.cs
+  artifactKey: Guid(ea238ce0d8277834ca781cc793d2397f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/ReinforcementsResponse.cs using Guid(ea238ce0d8277834ca781cc793d2397f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920e51be2eb31c1af3a513cf85fa139e') in 0.000610 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.761698 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Retreat.cs
+  artifactKey: Guid(f0623ed5f02f7ef4fb34ee6bd22848ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Retreat.cs using Guid(f0623ed5f02f7ef4fb34ee6bd22848ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6916f4c21a7d0d0f9bf8926974a00055') in 0.001568 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.420930 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/ShootAndScoot.cs
+  artifactKey: Guid(73068996780463e4d80914fdb8373785) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/ShootAndScoot.cs using Guid(73068996780463e4d80914fdb8373785) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e9100987e49cfaaa8060c5988e28d3f') in 0.001549 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.739621 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/Tasks/Surround.cs
+  artifactKey: Guid(c406457f9b73ed846beeacf346955933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/Tasks/Surround.cs using Guid(c406457f9b73ed846beeacf346955933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ae46dfd872d76b500375514e4e56c48') in 0.001556 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 36.824146 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/TacticalAgent.cs
+  artifactKey: Guid(2d10293bc0a6d054792c52e497df8084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/TacticalAgent.cs using Guid(2d10293bc0a6d054792c52e497df8084) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38d272e69008f2e85cafcb58be31d6b3') in 0.001749 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.397007 seconds.
+  path: Assets/Behavior Designer Tactical/Scripts/TacticalGroup.cs
+  artifactKey: Guid(5235b9ca245614a4eb77da6c873228f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Behavior Designer Tactical/Scripts/TacticalGroup.cs using Guid(5235b9ca245614a4eb77da6c873228f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2bc0cb2a79bfc95c5bb9b9e157dfab9') in 0.001621 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0

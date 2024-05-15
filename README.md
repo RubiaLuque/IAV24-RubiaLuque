@@ -318,6 +318,7 @@ Característica E: Movmiento el grupo
 
 - *AI for Games*, Ian Millington.
 - [Behaviour Designer 1.7.9, Opsive](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277#description)
+- [Behaviour Designer Documentation, Opsive](https://opsive.com/support/documentation/behavior-designer/overview/)
 - [Ultimate Low Poly Dungeon, Broken Vector](https://assetstore.unity.com/packages/3d/environments/dungeons/ultimate-low-poly-dungeon-143535)
 - [Little Ghost lowpoly(FREE), SR Studios Kerala](https://assetstore.unity.com/packages/3d/characters/little-ghost-lowpoly-free-271926)
 - [FREE - Modular Character - Fantasy RPG Human Male](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/free-modular-character-fantasy-rpg-human-male-228952)

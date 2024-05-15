@@ -6,7 +6,7 @@
 <br>
 
 > [!CAUTION]
-> La licencia sobre la herramienta ........ incluída en este repositorio no es de uso libre. Se recomienda no usar sin disponer de una licencia válida. Se encuentra aquí disponible debido a que no se ha podido retirar para el correcto funcionamiento de la versión final del proyecto. No me hago cargo de las responsabilidades legales que puedan recaer sobre quien haga uso de estas herramientas sin autorización previa del propietario original. El uso de esta herramienta en este repositorio tiene únicamente la finalidad de aportar académicamente a un trabajo universitario sin ánimo de lucro ni difusión.
+> La licencia sobre la herramienta Behaviour Designer 1.7.9 incluída en este repositorio no es de uso libre. Se recomienda no usar sin disponer de una licencia válida. Se encuentra aquí disponible debido a que no se ha podido retirar para el correcto funcionamiento de la versión final del proyecto. No me hago cargo de las responsabilidades legales que puedan recaer sobre quien haga uso de estas herramientas sin autorización previa del propietario original. El uso de esta herramienta en este repositorio tiene únicamente la finalidad de aportar académicamente a un trabajo universitario sin ánimo de lucro ni difusión.
 
 <br>
 
@@ -18,12 +18,40 @@
 
 Este se trata del proyecto final de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos en la UCM. 
 
-Este proyecto consiste en la creación de un prototipo de IA que se basa en el movimiento en grupo y persecución al jugador. El juego se desarrolla en un mundo en 3D y tiene un sistema basado en juegos roguelike de acción. Consta de dos mapas con puntos de spawn en los que se suceden oleadas de enemigos que el protagonista debe abatir antes de poder pasar de mapa o nivel y así salir de la mazmorra en la que está encerrado. La IA irá guiando a cada grupo de enemigos, formado de 3 a 5 fanasmas, hacia el jugador para atacarle. Estos fantasmas están encabezados por un líder que determina la marcha. El objetivo es mantener la formación durante el trayecto mientras se esquivan obstáculos o se pasan por pasillos estrechos. Se requiere de adaptabilidad y flexibilidad para acercarse al jugador, desaciendo las posiciones cuando se requiera y volviendo a recomponerse después. Habrá diferentes tipos de formaciones grupales de enemigos.
+Este proyecto consiste en la creación de un prototipo de IA que se basa en el movimiento en grupo y persecución al jugador. El juego se desarrolla en un mundo en 3D y tiene un sistema basado en juegos roguelike de acción. Consta de dos mapas con puntos de spawn en los que se suceden oleadas de enemigos que el protagonista debe abatir antes de poder pasar de mapa o nivel y así salir de la mazmorra en la que está encerrado. La IA irá guiando a cada grupo de enemigos, formado de 3 a 10 fanasmas, hacia el jugador para atacarle. Estos fantasmas están encabezados por un líder que determina la marcha. El objetivo es mantener la formación durante el trayecto mientras se esquivan obstáculos o se pasan por pasillos estrechos. Se requiere de adaptabilidad y flexibilidad para acercarse al jugador, desaciendo las posiciones cuando se requiera y volviendo a recomponerse después. Habrá diferentes tipos de formaciones grupales de enemigos.
 
 <br>
 
 ## Punto de partida
-Se parte de un proyecto base de **Unity 2022.3.5f1** 
+Se parte de un proyecto base de **Unity 2022.3.5f1** con la herramienta Behaviour Designer añadida en la carpeta assets al cual se le añaden otros assets gratuitos para crear los escenarios, enemigos y personaje (ver Referencias para más detalle). Se usarán los Behaviour Trees de la herramienta mentada anteriormente para el comportamiento del grupo y de cada individuo.
+
+Las clases bases que se usarán son:
+- ```PlayerController```: control del proyagonista con WASD.
+- ```ClusterBehaviour```: comportamiento de la formación de los enemigos.
+- ```ClusterManager```: se encarga de los distintos tipos de formaciones y su composición.
+- ```SpawnManager```: control del tiempo entre grupos de enemigos y su numero por cada punto de spawn.
+- ```ClusterLeader```: clase que debe tener el lider de cada grupo, encabeza la marcha y se comunica con el resto de integrantes.
+- ```CameraController```: control del movimiento de la cámara para que siga al personaje.
+
+A su vez, se usarán las clases de Behaiour Designer, en específico aquellas que se encuentran en la subcarpeta Tasks de Formations:
+- ```Circle```: forma de círculo o circunferencia.
+- ```Diamond```: forma de diamante o rombo.
+- ```Wedge```: forma en V con el líder al frente.
+- ```Row``` y ```Line```: forma de línea horizontal o varias líneas horizontales, respectivamente.
+- ```Triangle```: forma de triángulo con todas las posiciones interiores cubiertas.
+- ```Formation Agent```: tiene referencias y variables para cada elemento (enemigo, en este caso) que se encuentra en la formación.
+- ```Formation Group```: comportamiento del grupo dentro del movimiento y formación: escucha de órdenes, seguimiento del objetivo, mantenimiento de la formación, esquiva de obstáculos...
+
+También se hará uso de las clases de Movement:
+- ```Group Movement```: movimiento del grupo.
+- ```Movment```: algoritmo A* o de seguimiento elegido.
+
+Por último, se usarán las tácticas de combate definidas en Tactics:
+- ```Charge```: cargar hasta el objetivo y atacar al alcanzarlo.
+- ```Flank```: flanequear al objetivo desde alguno de sus laterales.
+- ```Surround```: rodear al objetivo.
+- ```Tactical Agent```: tiene referencias y variables para cada elemento (enemigo, en este caso) que se encuentra en la formación que va a realizar las tácticas de combate anteriores.
+- ```Tactical Group```: comportamiento del grupo dentro del combate: definición del líder, qué comportamiento seguir según el árbol de comportamiento de dicho lider, objetivo al que atacar...
 
 <br><br>
 ## Guía de estilo del código
@@ -154,7 +182,25 @@ function pathfindStar(graph: Graph. start: Node, end: Node, heuristic: Heuristic
 
 <br>
 
-Para el compoortamiento del resto de integrantes del grupo se usará: 
+Se ha hablado de heurística, así que a continuación se muestra el pseudocódigo para dicha clase y su funcionalidad. Se trata de una clase que se encarga de la estimación de los costes de recorrer las aristas de un grafo y pasar por sus nodos dado un nodo inicial:
+```
+class Heuristic:
+    # Se almacena el nodo al que se quiere llegar y que esta heurística está estimando
+    goalNode: Node
+
+    function estimate(node: Node) -> float
+
+    # Coste estimado para alcanzar el nodo almacenado como meta para el nodo inicialmente dado
+    function estimate(fromNode: Node) -> float:
+        return estimate(fromNode, goalNode)
+
+    # Coste estimado para moverse entre dos nodos
+    function estimate(fromNode: Node, toNode: Node) -> float
+```
+
+Para el compoortamiento del resto de integrantes del grupo se usarán los Behaviour Trees de la herramienta Behaviour Designer, en específico los scripts de la carpeta Behaviour Designer Formations.
+El comportamiento de los enemigos se desarrolla seguiendo el siguiente árbol de decisión:
+
 
 
 <br>
@@ -170,7 +216,7 @@ Característica A: Movimiento del personaje y cámara
     </tr>
      <tr>
         <th><b>A.2</b></th>
-        <th>Seguimiento correcto de la cámara al jugador.</th>
+        <th>Probar que cuando el jugador se mueve hacia cualquier dirección, la cámara le sigue, manteniéndolo en el centro.</th>
     </tr>
     
 </table>
@@ -179,11 +225,15 @@ Característica B: Creación de los dos niveles
 <table>
     <tr>
         <th><b>B.1</b></th>
-        <th>Comprobar que los puntos de spawn funcionan correctamente. </th>
+        <th>Comprobar que hay un intervalo de 7 segundos entre cada grupo instanciado del nivel 1.</th>
     </tr>
     <tr>
         <th><b>B.2</b></th>
-        <th>...</th>
+        <th>Comprobar que hay un intervalo de 5 segundos entre cada grupo instanciado del nivel 2.</th>
+    </tr>
+    <tr>
+        <th><b>B.3</b></th>
+        <th>Comprobar la colisión del jugador contra todos los elementos del entorno de cada nivel.</th>
     </tr>
     
 </table>
@@ -216,11 +266,27 @@ Característica E: Movmiento el grupo
     </tr>
   <tr>
         <th><b>E.2</b></th>
-        <th>Probar que la formación puede rodear los obtáculos del nivel 1.</th>
+        <th>Probar que la formación puede rodear los obtáculos del nivel 1: Separación y reagrupación, cambio de la formación según el entorno.</th>
     </tr>
   <tr>
         <th><b>E.3</b></th>
         <th>Probar que hay una formación que avanza en línea horizontal.</th>
+    </tr>
+  <tr>
+        <th><b>E.4</b></th>
+        <th>Probar que hay una formación en forma de diamante.</th>
+    </tr>
+  <tr>
+        <th><b>E.4</b></th>
+        <th>Probar que hay una formación en V.</th>
+    </tr>
+  <tr>
+        <th><b>E.5</b></th>
+        <th>Probar que hay una formación en círculo.</th>
+    </tr>
+  <tr>
+        <th><b>E.5</b></th>
+        <th>Probar que hay una formación en triángulo.</th>
     </tr>
 </table>
 <br>
@@ -250,7 +316,11 @@ Característica E: Movmiento el grupo
 
 ## Referencias
 
-Los recursos de terceros utilizados son de uso público.
-
 - *AI for Games*, Ian Millington.
+- [Behaviour Designer 1.7.9, Opsive](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277#description)
+- [Ultimate Low Poly Dungeon, Broken Vector](https://assetstore.unity.com/packages/3d/environments/dungeons/ultimate-low-poly-dungeon-143535)
+- [Little Ghost lowpoly(FREE), SR Studios Kerala](https://assetstore.unity.com/packages/3d/characters/little-ghost-lowpoly-free-271926)
+- [FREE - Modular Character - Fantasy RPG Human Male](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/free-modular-character-fantasy-rpg-human-male-228952)
+- [AI-Formations, EezehDev](https://github.com/EezehDev/AI-Formations)
+- [Learn To Create Enemy AI With A Few Lines of Code In Unity Game Engine, AwesomeTuts](https://awesometuts.com/blog/unity-enemy-ai/)
 

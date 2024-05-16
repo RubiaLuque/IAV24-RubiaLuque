@@ -410,7 +410,7 @@ Característica E: Movmiento el grupo
 
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
-| :x: | Diseño: Documentación inicial | 16-05-2024 |
+| ✔️ | Diseño: Documentación inicial | 16-05-2024 |
 | :x: | Característica A: Movimiento del personaje y cámara | 28-05-2024 |
 | :x: | Característica B: Creación de los dos niveles | 28-05-2024 |
 | :x: | Característica C: Ciclo de juego | 28-05-2024 |

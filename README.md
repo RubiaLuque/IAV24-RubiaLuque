@@ -300,6 +300,7 @@ Al igual que ocurría con la función ```TargetPosition()```, en este caso se ha
 
 Para el comportamiento de los integrantes del grupo se usarán los Behaviour Trees de la herramienta Behaviour Designer. De esta manera, las clases anteriormente mendionadas quedarían unidas por un árbol de decisión y comportamiento tal que así:
 
+![Selector principal](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/97835f8d-5518-4aec-8e86-92cd5fc277a7)
 
 
 
@@ -388,6 +389,14 @@ Característica E: Movmiento el grupo
   <tr>
         <th><b>E.7</b></th>
         <th>Probar que hay una formación en triángulo.</th>
+    </tr>
+  <tr>
+        <th><b>E.8</b></th>
+        <th>Probar que cuando no hay ningún otro grupo atacando al personaje, se le rodea.</th>
+    </tr>
+  <tr>
+        <th><b>E.9</b></th>
+        <th>Probar que cuando hay 1 o más grupos atacando al personaje, se le flanquea.</th>
     </tr>
 </table>
 <br>

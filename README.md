@@ -198,8 +198,109 @@ class Heuristic:
     function estimate(fromNode: Node, toNode: Node) -> float
 ```
 
-Para el compoortamiento del resto de integrantes del grupo se usarán los Behaviour Trees de la herramienta Behaviour Designer, en específico los scripts de la carpeta Behaviour Designer Formations.
-El comportamiento de los enemigos se desarrolla seguiendo el siguiente árbol de decisión:
+Pseudocódigo para las distintas formaciones de los enemigos:
+
+```
+class Circle: 
+
+    function AddAgentToGroup(agent: Behaviour, node: int)
+
+    function RemoveAgentFromGroup(agent: Behaviour) -> int
+
+    function TargetPosition(index: int, zLookAhead: float) -> Vector3
+```
+```
+class Diamond: 
+
+    function TargetPosition(index: int, zLookAhead: float) -> Vector3
+```
+```
+class Row: 
+
+    function TargetPosition(index: int, zLookAhead: float) -> Vector3
+        return transforms[0].TransformPoint(index * 2, 0, zLookAhead);
+```
+```
+class Wedge: 
+
+    function TargetPosition(index: int, zLookAhead: float) -> Vector3
+```
+```
+class Triangle: 
+
+    function AddAgentToGroup(agent: Behaviour, node: int)
+
+    function RemoveAgentFromGroup(agent: Behaviour) -> int
+
+    function TargetPosition(index: int, zLookAhead: float) -> Vector3
+```
+
+Aunque el pseudocódigo sea igual a simple vista, la implementación de la función ```TargetPosition()``` es distinta entre cada clase. Se ha omitido su representación debido a la complejidad de la misma.
+
+Luego, el pseudocodigo relativo a las acciones del grupo dentro del campo de batalla sería:
+```
+class Attack:
+
+function OnUpdate()
+     var baseStatus = base.OnUpdate()
+            if not baseStatus == TaskStatus.Running or not started
+                return baseStatus
+            
+
+            if MoveToAttackPosition()
+                tacticalAgent.TryAttack()
+            
+
+            return TaskStatus.Running;
+```
+
+```
+class Charge:
+
+# Los enemigos cargan hacia el objetivo, cuando se encuentran 
+# a una determinada distancia empiezan a atacar
+function OnUpdate()
+```
+```
+class Flank:
+
+function FormationUpdated(idex: int)
+    base.FormationUpdated(index);
+            # Determine the initial move to offset. This allows the agents to # sneak up on the target without crossing directly in front of the # target's field of view.
+            var groupCount = dualFlank.Value ? 3 : 2
+            var groupIndex = formationIndex % groupCount
+
+            # centro
+            if groupIndex == 0 
+                destinationOffset.Set(0, 0, tacticalAgent.AttackAgent.AttackDistance())
+            # derecha
+            else groupIndex == 1 
+                destinationOffset.Set(-tacticalAgent.AttackAgent.AttackDistance() - approachDistance.Value, 0, 0)
+
+            # izquierda
+            else
+                destinationOffset.Set(tacticalAgent.AttackAgent.AttackDistance() + approachDistance.Value, 0, 0)
+    
+            inPosition = false;
+
+function OnUpdate()
+
+```
+```
+class Surround:
+
+function AddAgentToGroup(agent: Behaviour, node: int)
+
+function RemoveAgentFromGroup(agent: Behaviour) -> int
+
+function OnUpdate()
+```
+
+Al igual que ocurría con la función ```TargetPosition()```, en este caso se ha omitido incluir una definición de la clase ```OnUpdate()``` de algunas clases por los mismos motivos.
+
+Para el comportamiento de los integrantes del grupo se usarán los Behaviour Trees de la herramienta Behaviour Designer. De esta manera, las clases anteriormente mendionadas quedarían unidas por un árbol de decisión y comportamiento tal que así:
+
+
 
 
 
@@ -277,15 +378,15 @@ Característica E: Movmiento el grupo
         <th>Probar que hay una formación en forma de diamante.</th>
     </tr>
   <tr>
-        <th><b>E.4</b></th>
+        <th><b>E.5</b></th>
         <th>Probar que hay una formación en V.</th>
     </tr>
   <tr>
-        <th><b>E.5</b></th>
+        <th><b>E.6</b></th>
         <th>Probar que hay una formación en círculo.</th>
     </tr>
   <tr>
-        <th><b>E.5</b></th>
+        <th><b>E.7</b></th>
         <th>Probar que hay una formación en triángulo.</th>
     </tr>
 </table>

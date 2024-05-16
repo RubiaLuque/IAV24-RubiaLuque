@@ -11,10 +11,10 @@
 /[Mm]emoryCaptures/
 
 # Asset --> Behaviour Designer tool
-/[Aa]ssets/Behaviour Designer*
-/[Aa]ssets/Behaviour Designer Formations*
-/[Aa]ssets/Behaviour Designer Movement*
-/[Aa]ssets/Behaviour Designer Tactical*
+[Aa]ssets/Behaviour Designer/
+[Aa]ssets/Behaviour Designer Formations/
+[Aa]ssets/Behaviour Designer Movement/
+[Aa]ssets/Behaviour Designer Tactical/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta

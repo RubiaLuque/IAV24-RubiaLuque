@@ -50,11 +50,13 @@ public class CharacterMove : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.E))
         {
             animator.SetTrigger("attacking");
+            animator.SetBool("idling", true);
             animator.SetBool("runForward", false);
             animator.SetBool("runBackward", false);
         }
         else
         {
+            animator.SetBool("idling", true);
             animator.SetBool("runForward", false);
             animator.SetBool("runBackward", false);
             animator.SetBool("dead", false); //Quitar esta linea despues

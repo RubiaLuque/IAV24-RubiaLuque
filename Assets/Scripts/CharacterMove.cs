@@ -13,6 +13,8 @@ public class CharacterMove : MonoBehaviour
     [SerializeField]
     float rotationSpeed = 10f;
 
+    //https://www.youtube.com/watch?v=l90d4z5nVWI
+
     // Start is called before the first frame update
     void Start()
     {

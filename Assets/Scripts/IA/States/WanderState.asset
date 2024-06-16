@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81226ce120068d499025cca56b6dc91, type: 3}
   m_Name: WanderState
   m_EditorClassIdentifier: 
-  actions: []
+  actions:
+  - {fileID: 0}
   transitions: []

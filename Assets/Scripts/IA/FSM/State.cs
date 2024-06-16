@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "FSM/State")]
 public sealed class State : BaseState
 {
-    //El modificador sealed hace que esta clase no pueda tener hijos, la convierte asi en una clase abstracta
+    //El modificador sealed hace que esta clase no pueda tener hijos
 
     //Se tiene una lista de acciones y transiciones
     public List<Action> actions = new List<Action>();

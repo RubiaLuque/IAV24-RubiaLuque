@@ -1,5 +1,5 @@
 
-# IAV - Fantasmicos al poder
+# IAV - Fantasmitos al poder
 
 # IAV - Documento de Producción del Proyecto Final
 
@@ -20,35 +20,9 @@ Este proyecto consiste en la creación de un prototipo de IA que se basa en el m
 <br>
 
 ## Punto de partida
-Se parte de un proyecto base de **Unity 2022.3.5f1** con la herramienta Behaviour Designer añadida en la carpeta assets al cual se le añaden otros assets gratuitos para crear los escenarios, enemigos y personaje (ver Referencias para más detalle). Se usarán los Behaviour Trees de la herramienta mentada anteriormente para el comportamiento del grupo y de cada individuo.
+Se parte de un proyecto base de **Unity 2022.3.5f1** 
 
-Las clases bases que se usarán son:
-- ```PlayerController```: control del proyagonista con WASD.
-- ```ClusterBehaviour```: comportamiento de la formación de los enemigos.
-- ```ClusterManager```: se encarga de los distintos tipos de formaciones y su composición.
-- ```SpawnManager```: control del tiempo entre grupos de enemigos y su numero por cada punto de spawn.
-- ```ClusterLeader```: clase que debe tener el lider de cada grupo, encabeza la marcha y se comunica con el resto de integrantes.
-- ```CameraController```: control del movimiento de la cámara para que siga al personaje.
 
-A su vez, se usarán las clases de Behaiour Designer, en específico aquellas que se encuentran en la subcarpeta Tasks de Formations:
-- ```Circle```: forma de círculo o circunferencia.
-- ```Diamond```: forma de diamante o rombo.
-- ```Wedge```: forma en V con el líder al frente.
-- ```Row``` y ```Line```: forma de línea horizontal o varias líneas horizontales, respectivamente.
-- ```Triangle```: forma de triángulo con todas las posiciones interiores cubiertas.
-- ```Formation Agent```: tiene referencias y variables para cada elemento (enemigo, en este caso) que se encuentra en la formación.
-- ```Formation Group```: comportamiento del grupo dentro del movimiento y formación: escucha de órdenes, seguimiento del objetivo, mantenimiento de la formación, esquiva de obstáculos...
-
-También se hará uso de las clases de Movement:
-- ```Group Movement```: movimiento del grupo.
-- ```Movment```: algoritmo A* o de seguimiento elegido.
-
-Por último, se usarán las tácticas de combate definidas en Tactics:
-- ```Charge```: cargar hasta el objetivo y atacar al alcanzarlo.
-- ```Flank```: flanequear al objetivo desde alguno de sus laterales.
-- ```Surround```: rodear al objetivo.
-- ```Tactical Agent```: tiene referencias y variables para cada elemento (enemigo, en este caso) que se encuentra en la formación que va a realizar las tácticas de combate anteriores.
-- ```Tactical Group```: comportamiento del grupo dentro del combate: definición del líder, qué comportamiento seguir según el árbol de comportamiento de dicho lider, objetivo al que atacar...
 
 <br><br>
 ## Guía de estilo del código
@@ -324,15 +298,15 @@ Característica B: Creación de los dos niveles
 <table>
     <tr>
         <th><b>B.1</b></th>
-        <th>Comprobar que hay un intervalo de 7 segundos entre cada grupo instanciado del nivel 1.</th>
+        <th>.</th>
     </tr>
     <tr>
         <th><b>B.2</b></th>
-        <th>Comprobar que hay un intervalo de 5 segundos entre cada grupo instanciado del nivel 2.</th>
+        <th>.</th>
     </tr>
     <tr>
         <th><b>B.3</b></th>
-        <th>Comprobar la colisión del jugador contra todos los elementos del entorno de cada nivel.</th>
+        <th>Comprobar la colisión del jugador contra los elementos del entorno de cada nivel.</th>
     </tr>
     
 </table>
@@ -341,59 +315,59 @@ Característica C: Ciclo de juego
 <table>
     <tr>
         <th><b>C.1</b></th>
-        <th>Comrpobar que se pasa correctamente del nivel 1 al 2 al derrotar a todos los enemigos del 1.</th>
+        <th>Comrpobar que se pasa correctamente del nivel 1 al 2 al acabar con todos los fantasmas.</th>
     </tr>
     <tr>
         <th><b>C.2</b></th>
-        <th>Comprobar que se acaba el juego y se vuelve al menú cuando se acaba con todos los enemigos del nivel 2.</th>
+        <th>Comprobar que se acaba el juego y se vuelve al menú cuando se acaba con todos los fantasmas del nivel 2.</th>
     </tr>
 </table>
 <br>
-Característica D: Persecución con A*
+Característica D: 
 <table>
     <tr>
         <th><b>D.1</b></th>
-        <th>Comprobar que el lider de la formación puede trazar un camino óptimo hacia el jugador esquivando obstáculos.</th>
+        <th>.</th>
     </tr>
 </table>
 <br>
-Característica E: Movmiento el grupo
+Característica E: 
 <table>
     <tr>
         <th><b>E.1</b></th>
-        <th>Probar que la formación puede adaptarse a pasillos estrechos del nivel 2.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.2</b></th>
-        <th>Probar que la formación puede rodear los obtáculos del nivel 1: Separación y reagrupación, cambio de la formación según el entorno.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.3</b></th>
-        <th>Probar que hay una formación que avanza en línea horizontal.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.4</b></th>
-        <th>Probar que hay una formación en forma de diamante.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.5</b></th>
-        <th>Probar que hay una formación en V.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.6</b></th>
-        <th>Probar que hay una formación en círculo.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.7</b></th>
-        <th>Probar que hay una formación en triángulo.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.8</b></th>
-        <th>Probar que cuando no hay ningún otro grupo atacando al personaje, se le rodea.</th>
+        <th>.</th>
     </tr>
   <tr>
         <th><b>E.9</b></th>
-        <th>Probar que cuando hay 1 o más grupos atacando al personaje, se le flanquea.</th>
+        <th>.</th>
     </tr>
 </table>
 <br>
@@ -408,11 +382,11 @@ Característica E: Movmiento el grupo
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
 | ✔️ | Diseño: Documentación inicial | 16-05-2024 |
-| :x: | Característica A: Movimiento del personaje y cámara | 28-05-2024 |
-| :x: | Característica B: Creación de los dos niveles | 28-05-2024 |
+| ✔️ | Característica A: Movimiento del personaje y cámara | 23-05-2024 |
+| ✔️ | Característica B: Creación de los dos niveles | 17-06-2024 |
 | :x: | Característica C: Ciclo de juego | 28-05-2024 |
-| :x: | Característica D: Persecución con A* | 28-05-2024 |
-| :x: | Característica E: Movimiento en grupo | 28-05-2024 |
+| ✔️ | Característica D: Creación de FMS base dirigida por datos | 16-05-2024 |
+| :x: | Característica E: Creación de acciones, transiciones y decisiones para los fantasmas | 28-05-2024 |
 | :x: | Diseño: Documentación final | 28-05-2024 |
 | :x: | Vídeo | 28-05-2024 |
 
@@ -424,11 +398,8 @@ Característica E: Movmiento el grupo
 ## Referencias
 
 - *AI for Games*, Ian Millington.
-- [Behaviour Designer 1.7.9, Opsive](https://assetstore.unity.com/packages/tools/visual-scripting/behavior-designer-behavior-trees-for-everyone-15277#description)
-- [Behaviour Designer Documentation, Opsive](https://opsive.com/support/documentation/behavior-designer/overview/)
-- [Ultimate Low Poly Dungeon, Broken Vector](https://assetstore.unity.com/packages/3d/environments/dungeons/ultimate-low-poly-dungeon-143535)
+
 - [Little Ghost lowpoly(FREE), SR Studios Kerala](https://assetstore.unity.com/packages/3d/characters/little-ghost-lowpoly-free-271926)
 - [FREE - Modular Character - Fantasy RPG Human Male](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/free-modular-character-fantasy-rpg-human-male-228952)
-- [AI-Formations, EezehDev](https://github.com/EezehDev/AI-Formations)
-- [Learn To Create Enemy AI With A Few Lines of Code In Unity Game Engine, AwesomeTuts](https://awesometuts.com/blog/unity-enemy-ai/)
+
 

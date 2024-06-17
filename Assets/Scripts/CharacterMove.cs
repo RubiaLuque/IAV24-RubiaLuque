@@ -25,28 +25,32 @@ public class CharacterMove : MonoBehaviour
     void Update()
     {
         Vector3 move;
+        
     
         if (Input.GetKey(KeyCode.W))
         {
-            move = transform.forward;
-            controller.Move(speed * move.normalized * Time.deltaTime);
-            //transform.position = this.transform.position + speed * move.normalized * Time.deltaTime;
+            transform.forward = Vector3.forward;
+
+            controller.Move(speed * transform.forward * Time.deltaTime);
             animator.SetBool("runForward", true);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            move = transform.forward * (-1);
-            controller.Move(speed * move.normalized * Time.deltaTime);
-            animator.SetBool("runBackward", true);
+            transform.forward = Vector3.back;
+            controller.Move(speed * transform.forward * Time.deltaTime);
+            animator.SetBool("runForward", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(new Vector3(0, 1, 0), -1 * Time.deltaTime * rotationSpeed);
+            transform.forward = Vector3.left;
+            controller.Move(speed * transform.forward * Time.deltaTime);
             animator.SetBool("runForward", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(new Vector3(0, 1, 0), Time.deltaTime* rotationSpeed);
+            transform.forward = Vector3.right;
+
+            controller.Move(speed * transform.forward * Time.deltaTime);
             animator.SetBool("runForward", true);
         }
         else if(Input.GetKeyDown(KeyCode.E))

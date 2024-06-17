@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: WanderState
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 0}
-  transitions: []
+  - {fileID: 11400000, guid: c2659e20a038ae24bb7dd2d3d9e48d23, type: 2}
+  transitions:
+  - {fileID: 11400000, guid: d6026bec850849240a548b430a332c52, type: 2}

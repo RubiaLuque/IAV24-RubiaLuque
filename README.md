@@ -5,9 +5,6 @@
 
 <br>
 
-> [!CAUTION]
-> La licencia sobre la herramienta Behaviour Designer 1.7.9 incluída en este repositorio no es de uso libre. Se recomienda no usar sin disponer de una licencia válida. Se encuentra aquí disponible debido a que no se ha podido retirar para el correcto funcionamiento de la versión final del proyecto. No me hago cargo de las responsabilidades legales que puedan recaer sobre quien haga uso de estas herramientas sin autorización previa del propietario original. El uso de esta herramienta en este repositorio tiene únicamente la finalidad de aportar académicamente a un trabajo universitario sin ánimo de lucro ni difusión.
-
 <br>
 
 ## Autor

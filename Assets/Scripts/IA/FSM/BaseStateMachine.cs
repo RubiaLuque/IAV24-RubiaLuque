@@ -18,7 +18,12 @@ public class BaseStateMachine : MonoBehaviour
     }
 
     public GameObject GetGameObject() { return go; }
-    
+
+    public string StateToString()
+    {
+        return currentState.ToString();
+    }
+
     public BaseState currentState { get; set; }
 
     // Update is called once per frame

@@ -631,6 +631,8 @@ GameObject:
   - component: {fileID: 7070743215356771241}
   - component: {fileID: -1099033322066535215}
   - component: {fileID: 5941492364505439552}
+  - component: {fileID: 7461090913088408797}
+  - component: {fileID: 78031317438762443}
   m_Layer: 0
   m_Name: LittleGhost_LP (4)
   m_TagString: Untagged
@@ -742,8 +744,8 @@ MonoBehaviour:
   layerToIgnore:
     serializedVersion: 2
     m_Bits: 0
-  maxDistance: 10
-  maxAngle: 45
+  maxDistance: 15
+  maxAngle: 60
 --- !u!195 &-1099033322066535215
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -779,6 +781,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialState: {fileID: 11400000, guid: e38946d66dd6b7945a1b5f49a6ae73da, type: 2}
+--- !u!136 &7461090913088408797
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602231374797837610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &78031317438762443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602231374797837610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5bb3c92d7c64d429ed38f2bfd562e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2602231374847269571
 GameObject:
   m_ObjectHideFlags: 0

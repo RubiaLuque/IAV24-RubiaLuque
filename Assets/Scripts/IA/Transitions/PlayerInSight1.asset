@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 562328c8aa8275044ba459cc151acce1, type: 3}
+  m_Name: PlayerInSight1
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: bede767120a539348870868ab89b1eef, type: 2}
+  state1: {fileID: 11400000, guid: 42429f5c6924b2244a9c4346da6105a1, type: 2}
+  state2: {fileID: 11400000, guid: 70b937241e4893f4eb38bf40a1286c78, type: 2}

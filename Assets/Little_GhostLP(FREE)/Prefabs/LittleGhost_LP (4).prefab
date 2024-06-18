@@ -742,8 +742,8 @@ MonoBehaviour:
   layerToIgnore:
     serializedVersion: 2
     m_Bits: 0
-  maxDistance: 20
-  maxAngle: 60
+  maxDistance: 10
+  maxAngle: 45
 --- !u!195 &-1099033322066535215
 NavMeshAgent:
   m_ObjectHideFlags: 0

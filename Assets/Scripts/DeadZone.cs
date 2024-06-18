@@ -11,12 +11,14 @@ public class DeadZone : MonoBehaviour
     void Start()
     {
         box = GetComponent<BoxCollider>();
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<GhostSight>() != null)
+        if(other.GetComponent<SightSensor>() != null)
         {
+            uiManager.DeadGhost();
             Destroy(other.gameObject);
         }
     }

@@ -416,8 +416,8 @@ MonoBehaviour:
   layerToIgnore:
     serializedVersion: 2
     m_Bits: 0
-  maxDistance: 20
-  maxAngle: 60
+  maxDistance: 10
+  maxAngle: 45
 --- !u!114 &-154587489208402393
 MonoBehaviour:
   m_ObjectHideFlags: 0

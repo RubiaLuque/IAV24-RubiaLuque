@@ -7,13 +7,17 @@ public class BaseStateMachine : MonoBehaviour
 {
     public BaseState _initialState;
     private Dictionary<Type, Component> components;
+    GameObject go;
 
     // Start is called before the first frame update
     void Awake()
     {
+        go = this.gameObject;
         currentState = _initialState;
+        components = new Dictionary<Type, Component>();
     }
 
+    public GameObject GetGameObject() { return go; }
     
     public BaseState currentState { get; set; }
 
@@ -28,7 +32,7 @@ public class BaseStateMachine : MonoBehaviour
     public new T GetComponent<T>() where T : Component
     {
         //Si el component que se busca ya estaba registrado, se devuelve
-        if(components.ContainsKey(typeof(T))) { return (T)components[typeof(T)]; }
+        if(components.ContainsKey(typeof(T))) { return components[typeof(T)] as T; }
 
         //Si no:
 

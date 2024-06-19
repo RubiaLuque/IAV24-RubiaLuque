@@ -161,8 +161,7 @@ Esta característica incluye el crear una máquina de estados base abstracta que
 
 - <b>Característica F: Creación de acciones, transiciones y decisiones para los fantasmas</b>
 
-Para probar la versatilidad y capacidad de crear varios tipos de máquinas, se han creado dos máquinas distintas; una para cada tipo de fantasma para que cumplan los comportamientos descritos en la [Propuesta](https://github.com/RubiaLuque/IAV24-RubiaLuque/edit/main/README.md#propuesta).
-
+Para probar la versatilidad y capacidad de crear varios tipos de máquinas, se han creado dos máquinas distintas; una para cada tipo de fantasma para que cumplan los comportamientos descritos en la Propuesta.
 Los fantasmas de Tipo I tienen una máquina de estados más sencilla que se muestra en el diagrama siguiente:
 
 ![Selector principal](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/1f3caee0-ec2a-419f-9f9c-1734c15b5917)

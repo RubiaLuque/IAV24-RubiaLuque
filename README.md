@@ -15,9 +15,9 @@ Este se trata del proyecto final de la asignatura de Inteligencia Artificial par
 
 Este proyecto consiste en la creación de un prototipo de IA que se basa en la creación de una máquina de estados dirigida por datos. Para ello, se ha creado un entorno 3D con dos niveles que cada uno cuenta con un personaje que controla el jugador y varios fantasmas que vagan por un pueblo. El objetivo es conseguir sacar a todos los fantasmas del pueblo y llevarlos a un cíerculo mágico que hay a las afueras de la entrada. Para hacer esto hay que aprovecharse del comportamiento de los fantasmas. De esta manera hay dos tipos de ellos:
 
-- <b>Extrovertidos</b>: merodean mientras no vean al jugador, al avistarlo lo persiguen.
+- <b>Tipo I (Extrovertidos)</b>: merodean mientras no vean al jugador, al avistarlo lo persiguen.
 
-- <b>Introvertidos</b>: al igual que los anteriores, merodean mientras no vean al jugador, pero al verlo huyen y se esconden en un punto aleatorio del pueblo. Permanecen ahí hasta que el jugador los encuentra y los toca, es entonces cuando le empiezan a perseguir. 
+- <b>Tipo II (Introvertidos)</b>: al igual que los anteriores, merodean mientras no vean al jugador, pero al verlo huyen y se esconden en un punto aleatorio del pueblo. Permanecen ahí hasta que el jugador los encuentra y los toca, es entonces cuando le empiezan a perseguir. 
 
 Los niveles 1 y 2 se diferencian en el número de fantasmas y la extensión del mapa, así como el número de escondites.
 
@@ -161,8 +161,17 @@ Esta característica incluye el crear una máquina de estados base abstracta que
 
 - <b>Característica F: Creación de acciones, transiciones y decisiones para los fantasmas</b>
 
+Para probar la versatilidad y capacidad de crear varios tipos de máquinas, se han creado dos máquinas distintas; una para cada tipo de fantasma para que cumplan los comportamientos descritos en la [Propuesta](https://github.com/RubiaLuque/IAV24-RubiaLuque/edit/main/README.md#propuesta).
 
+Los fantasmas de Tipo I tienen una máquina de estados más sencilla que se muestra en el diagrama siguiente:
 
+![Selector principal](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/1f3caee0-ec2a-419f-9f9c-1734c15b5917)
+
+<br>
+
+Mientras tanto, los fantasmas de Tipo II tienen la máquina de estados descrita por el diagrama inferior:
+
+![Selector principal2](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/7245d981-78c8-44a2-a373-bde7dad01178)
 
 <br>
 
@@ -290,7 +299,7 @@ Característica F: Máquinas de estados específicas de los fantasmas: paso entr
 | ✔️ | Característica A: Creación del entorno: Nivel 1 y 2 | 27-05-2024 |
 | ✔️ | Característica B: Movimiento de la cámara y el personaje | 23-06-2024 |
 | :x: | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | 28-05-2024 |
-| :x: | Característica D: Sensores de vista y tacto | 28-05-2024 |
+| ✔️ | Característica D: Sensores de vista y tacto | 18-06-2024 |
 | ✔️ | Característica E: Creación de FMS base dirigida por datos | 16-05-2024 |
 | :x: | Característica F: Creación de acciones, transiciones y decisiones para los fantasmas | 28-05-2024 |
 | :x: | Diseño: Documentación final | 28-05-2024 |

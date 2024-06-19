@@ -15,9 +15,9 @@ Este se trata del proyecto final de la asignatura de Inteligencia Artificial par
 
 Este proyecto consiste en la creación de un prototipo de IA que se basa en la creación de una máquina de estados dirigida por datos. Para ello, se ha creado un entorno 3D con dos niveles que cada uno cuenta con un personaje que controla el jugador y varios fantasmas que vagan por un pueblo. El objetivo es conseguir sacar a todos los fantasmas del pueblo y llevarlos a un cíerculo mágico que hay a las afueras de la entrada. Para hacer esto hay que aprovecharse del comportamiento de los fantasmas. De esta manera hay dos tipos de ellos:
 
-- <b>Extrovertidos</b>: merodean mientras no vean al jugador, al avistarlo lo persiguen.
+- <b>Tipo I (Extrovertidos)</b>: merodean mientras no vean al jugador, al avistarlo lo persiguen.
 
-- <b>Introvertidos</b>: al igual que los anteriores, merodean mientras no vean al jugador, pero al verlo huyen y se esconden en un punto aleatorio del pueblo. Permanecen ahí hasta que el jugador los encuentra y los toca, es entonces cuando le empiezan a perseguir. 
+- <b>Tipo II (Introvertidos)</b>: al igual que los anteriores, merodean mientras no vean al jugador, pero al verlo huyen y se esconden en un punto aleatorio del pueblo. Permanecen ahí hasta que el jugador los encuentra y los toca, es entonces cuando le empiezan a perseguir. 
 
 Los niveles 1 y 2 se diferencian en el número de fantasmas y la extensión del mapa, así como el número de escondites.
 
@@ -60,15 +60,21 @@ Usando la herramienta Terrain de Unity se ha usado para crear los dos mapas. Par
 
 A su vez, se ha usado ```NavMeshSurface``` para la implementación de movimiento con IA. 
 
+<br>
+
 - <b>Característica B: Movimiento de la cámara y el personaje</b>
 
 Esta característica se basa en el movimiento y control del personaje y la cámara. La cámara no se controla de manera explícita sino que esta se mueve junto al jugador, manteniéndolo en el centro en todo momento.
+
+<br>
 
 - <b>Característica C: Movimientos individuales: Persecución, Merodeo y Huida </b>
 
 Esta caraterística abarca la creación de las acciones a realizar durante los estados de la máquina de estados. Aunque aparece antes, los scripts que se mencionan se crearon después de implementar la máquina de estados base porque esta era necesaria y prioritaria.
 
 Tanto la persecución como el merodeo y la huida son acciones de la máquina de estados, por lo que heredan de una clase ```Action``` y son ```ScriptableObjects```. Se usan como comportamientos de los fantasmas durante la ejecución de sus estados.
+
+<br>
 
 <b>Persecución</b>
 
@@ -85,12 +91,16 @@ class Follow : Action
         agent.SetDestination(sight.playerTransform.position)
 ```
 
+<br>
+
 <b>Merodeo</b>
 
 El fantasma merodea sin rumbo por la malla de navegación.
 
 ```
-``` 
+```
+
+<br>
 
 <b>Huida</b>
 
@@ -98,6 +108,8 @@ El fantasma huye del personaje y se dirige hacia un escondite que no esté ocupa
 
 ```
 ```
+
+<br>
 
 - <b>Característica D: Sensores de vista y tacto </b>
 
@@ -151,19 +163,32 @@ El sensor de <b>tacto</b> se usa para saber si el jugador está tocando o no al 
 ```
 ```
 
+<br>
+
 - <b>Característica E: Creación de FMS base dirigida por datos </b>
 
 Esta característica incluye el crear una máquina de estados base abstracta que actúe a modo de "caja negra" y que sea dirigida por datos. Es decir, que se caracterice por su versatilidad y capacidad de crear multitud de diferentes máquinas de estados, todas ellas construidas sobre una base sólida. El hecho de que sea dirigida por datos permite crear acciones, decisiones y transiciones que funcionen independientemente de cómo esté hecha la máquina, ya que esta actúa como motor. 
 
 
+![IAV](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/d8f942a4-b99e-4bd4-b3a1-81762754dcad)
 
 
+<br>
 
 - <b>Característica F: Creación de acciones, transiciones y decisiones para los fantasmas</b>
 
+Para probar la versatilidad y capacidad de crear varios tipos de máquinas, se han creado dos máquinas distintas; una para cada tipo de fantasma para que cumplan los comportamientos descritos en la Propuesta.
+Los fantasmas de Tipo I tienen una máquina de estados más sencilla que se muestra en el diagrama siguiente:
 
+![Selector principal](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/1f3caee0-ec2a-419f-9f9c-1734c15b5917)
 
+<br>
 
+Mientras tanto, los fantasmas de Tipo II tienen la máquina de estados descrita por el diagrama inferior:
+
+![Selector principal2](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/7245d981-78c8-44a2-a373-bde7dad01178)
+
+<br>
 <br>
 
 ## Pruebas y métricas
@@ -289,12 +314,12 @@ Característica F: Máquinas de estados específicas de los fantasmas: paso entr
 | ✔️ | Diseño: Documentación inicial | 16-05-2024 |
 | ✔️ | Característica A: Creación del entorno: Nivel 1 y 2 | 27-05-2024 |
 | ✔️ | Característica B: Movimiento de la cámara y el personaje | 23-06-2024 |
-| :x: | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | 28-05-2024 |
-| :x: | Característica D: Sensores de vista y tacto | 28-05-2024 |
-| ✔️ | Característica E: Creación de FMS base dirigida por datos | 16-05-2024 |
-| :x: | Característica F: Creación de acciones, transiciones y decisiones para los fantasmas | 28-05-2024 |
-| :x: | Diseño: Documentación final | 28-05-2024 |
-| :x: | Vídeo | 28-05-2024 |
+| :x: | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | - |
+| ✔️ | Característica D: Sensores de vista y tacto | 18-06-2024 |
+| ✔️ | Característica E: Creación de FMS base dirigida por datos | 17-06-2024 |
+| :x: | Característica F: Creación de acciones, transiciones y decisiones para los fantasmas | - |
+| :x: | Diseño: Documentación final | - |
+| :x: | Vídeo | - |
 
 
 

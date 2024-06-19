@@ -2841,9 +2841,9 @@ Terrain:
   m_TerrainData: {fileID: 15600000, guid: 6a1bcd6122a22cc458a51173266995a8, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
-  m_TreeCrossFadeLength: 5
+  m_TreeCrossFadeLength: 37
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 135
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -3627,7 +3627,6 @@ GameObject:
   - component: {fileID: 968966764}
   - component: {fileID: 968966767}
   - component: {fileID: 968966768}
-  - component: {fileID: 968966769}
   - component: {fileID: 968966770}
   m_Layer: 0
   m_Name: PLAYER
@@ -3720,18 +3719,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &968966769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968966763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cd895bd49c6e2c44ba540270054e8ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &968966770
 NavMeshAgent:
   m_ObjectHideFlags: 0

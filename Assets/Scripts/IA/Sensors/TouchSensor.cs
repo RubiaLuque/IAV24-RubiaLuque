@@ -10,7 +10,7 @@ public class TouchSensor : MonoBehaviour
     bool isPlayer = false;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponentInChildren<CharacterController>() != null)
+        if(other.GetComponentInChildren<CharacterMove>() != null)
         {
             isPlayer = true;
         }

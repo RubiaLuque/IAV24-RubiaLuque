@@ -15,16 +15,32 @@
 
 Este se trata del proyecto final de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos en la UCM. 
 
-Este proyecto consiste en la creación de un prototipo de IA que se basa en el movimiento en grupo y persecución al jugador. El juego se desarrolla en un mundo en 3D y tiene un sistema basado en juegos roguelike de acción. Consta de dos mapas con puntos de spawn en los que se suceden oleadas de enemigos que el protagonista debe abatir antes de poder pasar de mapa o nivel y así salir de la mazmorra en la que está encerrado. La IA irá guiando a cada grupo de enemigos, formado de 3 a 10 fanasmas, hacia el jugador para atacarle. Estos fantasmas están encabezados por un líder que determina la marcha. El objetivo es mantener la formación durante el trayecto mientras se esquivan obstáculos o se pasan por pasillos estrechos. Se requiere de adaptabilidad y flexibilidad para acercarse al jugador, desaciendo las posiciones cuando se requiera y volviendo a recomponerse después. Habrá diferentes tipos de formaciones grupales de enemigos.
+Este proyecto consiste en la creación de un prototipo de IA que se basa en la creación de una máquina de estados dirigida por datos. Para ello, se ha creado un entorno 3D con dos niveles que cada uno cuenta con un personaje que controla el jugador y varios fantasmas que vagan por un pueblo. El objetivo es conseguir sacar a todos los fantasmas del pueblo y llevarlos a un cíerculo mágico que hay a las afueras de la entrada. Para hacer esto hay que aprovecharse del comportamiento de los fantasmas. De esta manera hay dos tipos de ellos:
+
+- <b>Extrovertidos</b>: merodean mientras no vean al jugador, al avistarlo lo persiguen.
+
+- <b>Introvertidos</b>: al igual que los anteriores, merodean mientras no vean al jugador, pero al verlo huyen y se esconden en un punto aleatorio del pueblo. Permanecen ahí hasta que el jugador los encuentra y los toca, es entonces cuando le empiezan a perseguir. 
+
+Los niveles 1 y 2 se diferencian en el número de fantasmas y la extensión del mapa, así como el número de escondites.
 
 <br>
 
 ## Punto de partida
-Se parte de un proyecto base de **Unity 2022.3.5f1** 
+Se parte de un proyecto base de **Unity 2022.3.5f1** vacío al que se le han añadido los diferentes assets que se van a usar para los fantasmas o el entorno, así como la clase ```Merodeo``` de la Práctica 1. Por lo demás, todo se ha hecho desde cero.
 
+Aunque no estaban implementadas antes de empezar el proyecto se puede considerar que la base de la práctica son los scripts de la máquina de estados finita dirigida por datos:
 
+- ```BaseStateMachine```: clase ejecutora de la máquina de estados que lleva cada agente que vaya a hacer uso de la misma.
+- ```BaseState```: define el estado base.
+- ```State```: define un estado abstracto.
+- ```Action```: define una acción que se lleva a cabo mientras se está en un estado. 
+- ```Decision```: define una decisión que debe cumplirse para cambiar de estado.
+- ```Transition```: se encarga de llevar a cabo los cambios en los estados en base a si se cumple o no la condición de la decisión.
+
+Menos ```BaseStateMachine```, todas las demás clases heredan de ScriptableObjects para así poder hacer que la máquina sea dirigida por datos.
 
 <br><br>
+
 ## Guía de estilo del código
 Para dar cohesión al trabajo, se ha acordado el uso de unas directrices que seguir a la hora de programar el código (que no el pseudocódigo). Estas son:
 - El uso de Camel Case para las variables, ya sean privadas o públicas. Un ejemplo de esto sería: ```int varName```.
@@ -33,245 +49,10 @@ Para dar cohesión al trabajo, se ha acordado el uso de unas directrices que seg
 Todo el código se escribirá en inglés a excepción de los comentarios, que serán en español. En algunas excepciones se ha usado inglés, siguiendo con la estructura y forma del código base. Lo ideal es que todas las funciones vayan acompañadas de un comentario que describa brevemente su código a no ser que su nombre o brevedad sean autoexplicativos.
 
 <br><br>
+
 ## Diseño de la solución
 
-Se trata de un algoritmo iterativo en el que en cada iteración se exploran las conexiones del nodo actual y en los registros de sus nodos hijos se guarda en coste hasta el momento. Hasta aquí es como usar Dijkstra, pero la diferencia entre ambos algoritmos radica en que A* al coste real se le suma la estimación de la función heurística y se guarda el resultado: la estimación del coste total del mejor camino origen-destino que pasa por ese nodo.
 
-Se usará en los enemigos y se le dará unicamente al líder de cada grupo que encabezará la marcha. El resto de integrantes se deberán de posicionar con respecto a dicho líder. De esta manera, se aumenta la eficacia del código y se compartimentaliza la funcionalidad.
-
-```
-function pathfindStar(graph: Graph. start: Node, end: Node, heuristic: Heuristic) -> Connection[]:
-
-    # Se usa esta estructura para guardar la información de cada nodo y llevar un registro
-    class NodeRecord:
-        node: Node
-        connection: Connection
-        costSoFar: float
-        estimatedTotalCost: float
-    
-    # Se inicializa para el primer nodo
-    startRecord = new NodeRecord()
-    startRecord.node = start
-    startRecord.connection = null
-    startRecord.costSoFar = 0
-    startRecord.estimatedTotalCost = heuristic.estimate(start)
-
-    # Se inicializan las listas abierta y cerrada
-    open = new PathfindingList()
-    open += startRecord
-    closed = new PathfindingList()
-
-    # Se itera en el procesamiento de cada nodo
-    while length(open) > 0
-        # Se busca el menor elemento de la lista abierta usando el coste estimado total
-        current = open.smallestElement()
-
-        # Si es el nodo buscado se termina el bucle
-        if current.node == goal:
-            break
-
-        # Si no, se continúa con las conexiones salientes del nodo
-        connections = graph.getConnections(current)
-
-        # Se recorre cada conexión
-        for connection in connections:
-            # Se obtiene el coste estimado del último nodo
-            endNode = connection.getToNode()
-            endNodeCost = current.costSoFar + connection.getCost()
-
-            # Si el nodo está cerrado es posible que se tenga que eliminar de la lista cerrada
-            # o saltarlo
-            if closed.contains(endNode):
-                # Se encuentra aqui los elementos guardados en la lista cerrada correspondientes
-                # a endNode
-                endNodeRecord = closed.find(endNode)
-                
-                # Si no hemos encontrado una ruta más corta, se salta
-                if endNodeRecord.constSoFar <= endNodeCost:
-                    continue
-                
-                # A diferencia de Dijkstra, aqui sí se puede encontrar un camino más barato que el que se tenía
-
-                # En otro caso, se elimina de la lista cerrada
-                closed -= endNodeRecord
-
-                # Se puede usar los antiguos valores del coste del nodo para calcular su 
-                # heurística sin tener que llamar a la funcion heurística, que puede consumir bastantes recursos
-                endNodeHeuristic = endNodeRecord.estimatedTotalCost - endNodeRecord.costSoFar
-
-            # Se salta si el nodo esta abierto y no hemos encontrado una ruta mejor
-            else if open.contains(endNode):
-                # Aquí se encuentra la lista de nodos abiertos correspondiente a endNode
-                endNodeRecord = open.find(endNode)
-
-                # Si la ruta no es mejor, se salta
-                if endNodeRecord.costSoFar <= endNodeCost:
-                    continue
-                
-                #De nuevo, se calcula su heurística
-                endNodeHeuristic = endNodeRecord.cost - endNodeRecord.costSoFar
-            
-            # De otra forma se sabe que hemos topado con un nodo no visitado, así que se guarda
-            else:
-                endNodeRecord = new NodeRecord()
-                endNodeRecord.node = endNode
-
-                # Se necesita calcular el valor heurístico usando la función, ya 
-                # que no tenemos datos guardados sobre los que apoyarnos
-                endNodeHeuristic = heuristic.estimate(endNode)
-            
-            # Se actualiza el coste, estimación y conexiones del nodo
-            endNodeRecord.cost = endNodeCost
-            endNodeRecord.connection = connection
-            endNodeRecord.estimatedTotalCost = endNodeCost + endNodeHeuristic
-
-            # Se añade a la lista de nodos abiertos
-            if not open.contains(endNode):
-                open += endNodeRecord
-        
-        # Se ha acabado de revisar las conexiones del nodo actual, así que
-        # se añade a la lista cerrada y se elimina de la abierta
-        open -= current
-        closed += current
-
-    # Se ha encontrado el nodo objetivo o si no hay más nodos que buscar
-    if current.node != goal:
-        # No hay más nodos y no hemos alcanzado el objetivo, así que no hay solución
-        return null
-
-    else:
-        # Se crea la lista de conexiones en el path
-        path = []
-        # Se recorre hacia atrás el path, acumulando conexiones
-        while current.node != start:
-            path += current.connection
-            current = current.connection.getFromNode()
-
-        # Se le da la vuelta al path y se devuelve
-        return reverse(path)
-```
-
-<br>
-
-Se ha hablado de heurística, así que a continuación se muestra el pseudocódigo para dicha clase y su funcionalidad. Se trata de una clase que se encarga de la estimación de los costes de recorrer las aristas de un grafo y pasar por sus nodos dado un nodo inicial:
-```
-class Heuristic:
-    # Se almacena el nodo al que se quiere llegar y que esta heurística está estimando
-    goalNode: Node
-
-    function estimate(node: Node) -> float
-
-    # Coste estimado para alcanzar el nodo almacenado como meta para el nodo inicialmente dado
-    function estimate(fromNode: Node) -> float:
-        return estimate(fromNode, goalNode)
-
-    # Coste estimado para moverse entre dos nodos
-    function estimate(fromNode: Node, toNode: Node) -> float
-```
-
-Pseudocódigo para las distintas formaciones de los enemigos:
-
-```
-class Circle: 
-
-    function AddAgentToGroup(agent: Behaviour, node: int)
-
-    function RemoveAgentFromGroup(agent: Behaviour) -> int
-
-    function TargetPosition(index: int, zLookAhead: float) -> Vector3
-```
-```
-class Diamond: 
-
-    function TargetPosition(index: int, zLookAhead: float) -> Vector3
-```
-```
-class Row: 
-
-    function TargetPosition(index: int, zLookAhead: float) -> Vector3
-        return transforms[0].TransformPoint(index * 2, 0, zLookAhead);
-```
-```
-class Wedge: 
-
-    function TargetPosition(index: int, zLookAhead: float) -> Vector3
-```
-```
-class Triangle: 
-
-    function AddAgentToGroup(agent: Behaviour, node: int)
-
-    function RemoveAgentFromGroup(agent: Behaviour) -> int
-
-    function TargetPosition(index: int, zLookAhead: float) -> Vector3
-```
-
-Aunque el pseudocódigo sea igual a simple vista, la implementación de la función ```TargetPosition()``` es distinta entre cada clase. Se ha omitido su representación debido a la complejidad de la misma.
-
-Luego, el pseudocodigo relativo a las acciones del grupo dentro del campo de batalla sería:
-```
-class Attack:
-
-function OnUpdate()
-     var baseStatus = base.OnUpdate()
-            if not baseStatus == TaskStatus.Running or not started
-                return baseStatus
-            
-
-            if MoveToAttackPosition()
-                tacticalAgent.TryAttack()
-            
-
-            return TaskStatus.Running;
-```
-
-```
-class Charge:
-
-# Los enemigos cargan hacia el objetivo, cuando se encuentran 
-# a una determinada distancia empiezan a atacar
-function OnUpdate()
-```
-```
-class Flank:
-
-function FormationUpdated(idex: int)
-    base.FormationUpdated(index);
-            # Determine the initial move to offset. This allows the agents to # sneak up on the target without crossing directly in front of the # target's field of view.
-            var groupCount = dualFlank.Value ? 3 : 2
-            var groupIndex = formationIndex % groupCount
-
-            # centro
-            if groupIndex == 0 
-                destinationOffset.Set(0, 0, tacticalAgent.AttackAgent.AttackDistance())
-            # derecha
-            else groupIndex == 1 
-                destinationOffset.Set(-tacticalAgent.AttackAgent.AttackDistance() - approachDistance.Value, 0, 0)
-
-            # izquierda
-            else
-                destinationOffset.Set(tacticalAgent.AttackAgent.AttackDistance() + approachDistance.Value, 0, 0)
-    
-            inPosition = false;
-
-function OnUpdate()
-
-```
-```
-class Surround:
-
-function AddAgentToGroup(agent: Behaviour, node: int)
-
-function RemoveAgentFromGroup(agent: Behaviour) -> int
-
-function OnUpdate()
-```
-
-Al igual que ocurría con la función ```TargetPosition()```, en este caso se ha omitido incluir una definición de la clase ```OnUpdate()``` de algunas clases por los mismos motivos.
-
-Para el comportamiento de los integrantes del grupo se usarán los Behaviour Trees de la herramienta Behaviour Designer. De esta manera, las clases anteriormente mendionadas quedarían unidas por un árbol de decisión y comportamiento tal que así:
-
-![Selector principal](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/97835f8d-5518-4aec-8e86-92cd5fc277a7)
 
 
 
@@ -281,72 +62,89 @@ Para el comportamiento de los integrantes del grupo se usarán los Behaviour Tre
 ## Pruebas y métricas
 
 
-Característica A: Movimiento del personaje y cámara
+Característica A: Creación del entorno: Nivel 1 y 2
 <table>
     <tr>
         <th><b>A.1</b></th>
-        <th>Probar el movimiento correcto con WASD del protagonista.</th>
+        <th>Dos niveles funcionales con 10 fantasmas el primero y 25 el segundo.</th>
     </tr>
      <tr>
         <th><b>A.2</b></th>
+        <th>Los elementos creados con Terrain son colisionables.</th>
+    </tr>
+    
+</table>
+<br>
+Característica B: Movimiento de la cámara y el personaje
+<table>
+    <tr>
+        <th><b>B.1</b></th>
+        <th>Probar el correcto movimiento con WASD del personaje.</th>
+    </tr>
+    <tr>
+        <th><b>B.2</b></th>
         <th>Probar que cuando el jugador se mueve hacia cualquier dirección, la cámara le sigue, manteniéndolo en el centro.</th>
     </tr>
     
 </table>
 <br>
-Característica B: Creación de los dos niveles
-<table>
-    <tr>
-        <th><b>B.1</b></th>
-        <th>.</th>
-    </tr>
-    <tr>
-        <th><b>B.2</b></th>
-        <th>.</th>
-    </tr>
-    <tr>
-        <th><b>B.3</b></th>
-        <th>Comprobar la colisión del jugador contra los elementos del entorno de cada nivel.</th>
-    </tr>
-    
-</table>
-<br>
-Característica C: Ciclo de juego
+Característica C: Movimientos individuales: Persecución, Merodeo y Huida
 <table>
     <tr>
         <th><b>C.1</b></th>
-        <th>Comrpobar que se pasa correctamente del nivel 1 al 2 al acabar con todos los fantasmas.</th>
+        <th>Comprobar que el fantasma es capaz de perseguir al jugador esquivando obstáculos.</th>
     </tr>
     <tr>
         <th><b>C.2</b></th>
-        <th>Comprobar que se acaba el juego y se vuelve al menú cuando se acaba con todos los fantasmas del nivel 2.</th>
+        <th>Comprobar que cuando más de 3 fantasmas persiguen al jugador, estos son capaces de organizarse para pasar por la puerta principal o entre obstáculos juntos entre sí.</th>
     </tr>
+    <tr>
+        <th><b>C.3</b></th>
+        <th>Comprobar que el merodeo es individual.</th>
+    </tr>
+    <tr>
+        <th><b>C.4</b></th>
+        <th>Comprobar que al huir, los escondites los ocupa un solo fantasma.</th>
+    </tr>
+
 </table>
 <br>
-Característica D: 
+Característica D: Sensores de percepción y tacto de los fantasmas
 <table>
     <tr>
         <th><b>D.1</b></th>
-        <th>.</th>
+        <th>Comprobar que los fantasmas ejecutan sus respectivas acciones al estar el jugador en su campo de visión.</th>
+    </tr>
+    <tr>
+        <th><b>D.2</b></th>
+        <th>Comprobar que, al ser tocados por el jugador, los fantasmas introvertidos lo siguen.</th>
     </tr>
 </table>
 <br>
-Característica E: 
+Característica E: Máquina de estados genérica y creación desde el Editor de Unity
 <table>
     <tr>
         <th><b>E.1</b></th>
         <th>.</th>
     </tr>
-  <tr>
-        <th><b>E.2</b></th>
+</table>
+<br>
+Característica F: Máquinas de estados específicas de los fantasmas: paso entre estados y correcto funcionamiento de las acciones y decisiones
+<table>
+    <tr>
+        <th><b>F.1</b></th>
         <th>.</th>
     </tr>
   <tr>
-        <th><b>E.3</b></th>
+        <th><b>F.2</b></th>
         <th>.</th>
     </tr>
   <tr>
-        <th><b>E.4</b></th>
+        <th><b>F.3</b></th>
+        <th>.</th>
+    </tr>
+  <tr>
+        <th><b>F.4</b></th>
         <th>.</th>
     </tr>
   <tr>
@@ -382,11 +180,12 @@ Característica E:
 | Estado  |  Tarea  |  Fecha  |  
 |:-:|:--|:-:|
 | ✔️ | Diseño: Documentación inicial | 16-05-2024 |
-| ✔️ | Característica A: Movimiento del personaje y cámara | 23-05-2024 |
-| ✔️ | Característica B: Creación de los dos niveles | 17-06-2024 |
-| :x: | Característica C: Ciclo de juego | 28-05-2024 |
-| ✔️ | Característica D: Creación de FMS base dirigida por datos | 16-05-2024 |
-| :x: | Característica E: Creación de acciones, transiciones y decisiones para los fantasmas | 28-05-2024 |
+| ✔️ | Característica A: Creación del entorno: Nivel 1 y 2 | 27-05-2024 |
+| ✔️ | Característica B: Movimiento de la cámara y el personaje | 23-06-2024 |
+| :x: | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | 28-05-2024 |
+| :x: | Característica D: Sensores de vista y tacto | 28-05-2024 |
+| ✔️ | Característica E: Creación de FMS base dirigida por datos | 16-05-2024 |
+| :x: | Característica F: Creación de acciones, transiciones y decisiones para los fantasmas | 28-05-2024 |
 | :x: | Diseño: Documentación final | 28-05-2024 |
 | :x: | Vídeo | 28-05-2024 |
 
@@ -397,8 +196,10 @@ Característica E:
 
 ## Referencias
 
-- *AI for Games*, Ian Millington.
-
+- [Tadevosyan G., Unity AI Development: A Finite-state Machine Tutorial, Toptal](https://www.toptal.com/unity-unity3d/unity-ai-development-finite-state-machine-tutorial)
+- [ScriptableObject, Unity Manual](https://docs.unity3d.com/Manual/class-ScriptableObject.html)
+- [Unite Austin 2017 - Game Architecture with Scriptable Objects, Unity, YouTube video](https://www.youtube.com/watch?v=raQ3iHhE_Kk)
+- [fsm-unity-article, GitHub repository](https://github.com/itsdikey/fsm-unity-article/tree/inital)
 - [Little Ghost lowpoly(FREE), SR Studios Kerala](https://assetstore.unity.com/packages/3d/characters/little-ghost-lowpoly-free-271926)
 - [FREE - Modular Character - Fantasy RPG Human Male](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/free-modular-character-fantasy-rpg-human-male-228952)
 

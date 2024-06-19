@@ -5,8 +5,6 @@
 
 <br>
 
-<br>
-
 ## Autor
 - Muxu Rubia Luque ([RubiaLuque](https://github.com/RubiaLuque))
 <br>
@@ -52,7 +50,116 @@ Todo el código se escribirá en inglés a excepción de los comentarios, que se
 
 ## Diseño de la solución
 
+La solución está dividida según varias características:
 
+- <b>Característica A: Creación del entorno: Nivel 1 y 2 </b>
+
+Esta característica engloba la creación de dos niveles, cada uno con un mapa y número de fantasmas y escondites distintos. 
+
+Usando la herramienta Terrain de Unity se ha usado para crear los dos mapas. Para la disposición de los árboles, la hierba y las demás decoraciones se ha usando el pincel de dicha herramienta. 
+
+A su vez, se ha usado ```NavMeshSurface``` para la implementación de movimiento con IA. 
+
+- <b>Característica B: Movimiento de la cámara y el personaje</b>
+
+Esta característica se basa en el movimiento y control del personaje y la cámara. La cámara no se controla de manera explícita sino que esta se mueve junto al jugador, manteniéndolo en el centro en todo momento.
+
+- <b>Característica C: Movimientos individuales: Persecución, Merodeo y Huida </b>
+
+Esta caraterística abarca la creación de las acciones a realizar durante los estados de la máquina de estados. Aunque aparece antes, los scripts que se mencionan se crearon después de implementar la máquina de estados base porque esta era necesaria y prioritaria.
+
+Tanto la persecución como el merodeo y la huida son acciones de la máquina de estados, por lo que heredan de una clase ```Action``` y son ```ScriptableObjects```. Se usan como comportamientos de los fantasmas durante la ejecución de sus estados.
+
+<b>Persecución</b>
+
+El fantasma persigue al jugador usando ```NavMeshSurface``` y ```NavMeshAgent``` para seguirlo esquivando obtáculos. Implícitamente se ejecuta el algoritmo A*. 
+
+```
+class Follow : Action
+
+    function: Execute(m = BaseStateMachine)
+    
+        NavMeshAgent agent = GetComponent<NavMeshAgent>()
+        SightSensor sight = GetComponent<SightSensor>()
+
+        agent.SetDestination(sight.playerTransform.position)
+```
+
+<b>Merodeo</b>
+
+El fantasma merodea sin rumbo por la malla de navegación.
+
+```
+``` 
+
+<b>Huida</b>
+
+El fantasma huye del personaje y se dirige hacia un escondite que no esté ocupado por otro fantasma.
+
+```
+```
+
+- <b>Característica D: Sensores de vista y tacto </b>
+
+Esta característica incluye la creación de sensores que usarán los fantasmas en la toma de decisiones para saber si cambiar o no de estado.
+
+El sensor de <b>vista</b> lo usan los fantasmas para saber si el jugador está o no en su rango de visión.
+
+```
+class SightSensor : MonoBehaviour
+
+    Transform playerTransform;
+    LayerMask layerToIgnore;
+    float maxDistance = 100;
+    float maxAngle = 60;
+    Ray raycast;
+
+    // Start is called before the first frame update
+    function: Awake()
+    
+        playerTransform = GameObject.Find("PLAYER").GetComponent<Transform>()     
+    
+
+    public bool ShootRay()
+    
+        if playerTransform == null 
+            return false
+
+        //Se crea un rayo desde la posicion del fantasma hasta el player y se obtiene la direccion y el angulo con
+        // su forward
+        raycast = new Ray(this.transform.position, playerTransform.position - this.transform.position)
+
+        Vector3 direction = new Vector3(raycast.direction.x, 0,  raycast.direction.z)
+
+        float rotation = Vector3.Angle(direction, this.transform.forward)
+
+        //Si el angulo es mayor que maxAngle no cuenta como que ha visto al jugador
+        if rotation > maxAngle 
+            return false;
+
+        ifnot Physics.Raycast(raycast, out RaycastHit hit, maxDistance, ~layerToIgnore)
+            return false;
+
+        if hit.collider.GetComponent<CharacterMove>() != null 
+            return true;
+
+        return false
+```
+
+El sensor de <b>tacto</b> se usa para saber si el jugador está tocando o no al propio fantasma.
+
+```
+```
+
+- <b>Característica E: Creación de FMS base dirigida por datos </b>
+
+Esta característica incluye el crear una máquina de estados base abstracta que actúe a modo de "caja negra" y que sea dirigida por datos. Es decir, que se caracterice por su versatilidad y capacidad de crear multitud de diferentes máquinas de estados, todas ellas construidas sobre una base sólida. El hecho de que sea dirigida por datos permite crear acciones, decisiones y transiciones que funcionen independientemente de cómo esté hecha la máquina, ya que esta actúa como motor. 
+
+
+
+
+
+- <b>Característica F: Creación de acciones, transiciones y decisiones para los fantasmas</b>
 
 
 

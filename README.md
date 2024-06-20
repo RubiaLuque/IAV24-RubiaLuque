@@ -24,7 +24,7 @@ Los niveles 1 y 2 se diferencian en el número de fantasmas y la extensión del 
 <br>
 
 ## Punto de partida
-Se parte de un proyecto base de **Unity 2022.3.5f1** vacío al que se le han añadido los diferentes assets que se van a usar para los fantasmas o el entorno, así como la clase ```Merodeo``` de la Práctica 1. Por lo demás, todo se ha hecho desde cero.
+Se parte de un proyecto base de **Unity 2022.3.5f1** vacío al que se le han añadido los diferentes assets que se van a usar para los fantasmas o el entorno, así como la clase ```Merodeo``` de la Práctica 1. Por lo demás, todo se ha hecho desde cero. La práctica constará en la creación de una máquina de estados finita dirigida por datos de manera que actúe como base para crear diferentes máquinas de estados funcionales, en este caso, 2. Es decir, desde la misma FSM base poder crear dos (o incluso más) máquinas que funcionen independientemente, pero que compartan la misma base. Siendo esta misma base la parte funcional y de "motor". Por sí sola, la FSM base no ejecuta ningún estado o acción específico, siendo que estos se le pasan como datos.
 
 Aunque no estaban implementadas antes de empezar el proyecto se puede considerar que la base de la práctica son los scripts de la máquina de estados finita dirigida por datos:
 
@@ -238,7 +238,6 @@ Característica C: Movimientos individuales: Persecución, Merodeo y Huida
         <th><b>C.4</b></th>
         <th>Comprobar que al huir, los escondites los ocupa un solo fantasma.</th>
     </tr>
-
 </table>
 <br>
 Característica D: Sensores de percepción y tacto de los fantasmas
@@ -249,7 +248,7 @@ Característica D: Sensores de percepción y tacto de los fantasmas
     </tr>
     <tr>
         <th><b>D.2</b></th>
-        <th>Comprobar que, al ser tocados por el jugador, los fantasmas introvertidos lo siguen.</th>
+        <th>Comprobar que los fantasmas reconocen el toque del jugador con un mensaje por Debug.</th>
     </tr>
 </table>
 <br>
@@ -257,7 +256,11 @@ Característica E: Máquina de estados genérica y creación desde el Editor de 
 <table>
     <tr>
         <th><b>E.1</b></th>
-        <th>.</th>
+        <th>Comprobación de etiquetas de creación de acciones, transiciones y estados desde el Menú de Unity.</th>
+    </tr>
+    <tr>
+        <th><b>E.2</b></th>
+        <th>Comprobación de creación de una máquina de estado específica desde el Editor de Unity.</th>
     </tr>
 </table>
 <br>
@@ -265,39 +268,19 @@ Característica F: Máquinas de estados específicas de los fantasmas: paso entr
 <table>
     <tr>
         <th><b>F.1</b></th>
-        <th>.</th>
+        <th>En la máquina de estados 1 comprobar si se pasa de Merodear a Seguir al jugador al verlo..</th>
     </tr>
   <tr>
         <th><b>F.2</b></th>
-        <th>.</th>
+        <th>En la máquina de estados 2 comprobar si se pasa de Merodear a Huir del jugador al verlo.</th>
     </tr>
   <tr>
         <th><b>F.3</b></th>
-        <th>.</th>
+        <th>En la máquina de estados 2 comprobar si, al ser tocados por el jugador, estos le siguen.</th>
     </tr>
   <tr>
         <th><b>F.4</b></th>
-        <th>.</th>
-    </tr>
-  <tr>
-        <th><b>E.5</b></th>
-        <th>.</th>
-    </tr>
-  <tr>
-        <th><b>E.6</b></th>
-        <th>.</th>
-    </tr>
-  <tr>
-        <th><b>E.7</b></th>
-        <th>.</th>
-    </tr>
-  <tr>
-        <th><b>E.8</b></th>
-        <th>.</th>
-    </tr>
-  <tr>
-        <th><b>E.9</b></th>
-        <th>.</th>
+        <th>Comprobar que los fantasmas que huyen se detienen al llegar a un escondite y se quedan quietos.</th>
     </tr>
 </table>
 <br>

@@ -11,7 +11,7 @@ public class Hide : Action
     Vector3 pos; 
     public override void Execute(BaseStateMachine m)
     {
-        NavMeshAgent agent = m.GetGameObject().GetComponent<NavMeshAgent>();
+        NavMeshAgent agent = m.GetComponent<NavMeshAgent>();
         if(!done) DoOnce();
 
         agent.SetDestination(pos);

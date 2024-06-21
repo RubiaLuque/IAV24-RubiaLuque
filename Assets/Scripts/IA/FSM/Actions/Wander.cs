@@ -26,10 +26,10 @@ public class Wander : Action
     public override void Execute(BaseStateMachine m)
     {
         dir = new Direction();
-        rb = m.GetGameObject().GetComponent<Rigidbody>();
-        transform = m.GetGameObject().GetComponent<Transform>();
+        rb = m.GetComponent<Rigidbody>();
+        transform = m.GetComponent<Transform>();
 
-        NavMeshAgent agent = m.GetGameObject().GetComponent<NavMeshAgent>();
+        NavMeshAgent agent = m.GetComponent<NavMeshAgent>();
 
         dir.angular = 0f;
         Vector3 auxDir = Vector3.zero;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "FSM/State")]
-public sealed class State : BaseState
+public sealed class State : MonoBehaviour
 {
     //El modificador sealed hace que esta clase no pueda tener hijos
 
@@ -12,7 +12,7 @@ public sealed class State : BaseState
     public List<Transition> transitions = new List<Transition>();
 
     //Se ejecutan las acciones y transiciones de la maquina de estados base
-    public override void Execute(BaseStateMachine m)
+    public void Execute(BaseStateMachine m)
     {
         //El equivalente a auto en C++ es var en C#
         foreach (var action in actions)

@@ -8,8 +8,8 @@ public class Follow : Action
 {
     public override void Execute(BaseStateMachine m)
     {
-        NavMeshAgent agent = m.GetGameObject().GetComponent<NavMeshAgent>();
-        SightSensor sight = m.GetGameObject().GetComponent<SightSensor>();
+        NavMeshAgent agent = m.GetComponent<NavMeshAgent>();
+        SightSensor sight = m.GetComponent<SightSensor>();
 
         agent.SetDestination(sight.playerTransform.position);
     }

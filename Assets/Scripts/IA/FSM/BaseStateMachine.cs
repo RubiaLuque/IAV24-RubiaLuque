@@ -5,26 +5,22 @@ using UnityEngine;
 
 public class BaseStateMachine : MonoBehaviour
 {
-    public BaseState _initialState;
+    public State _initialState;
     private Dictionary<Type, Component> components;
-    GameObject go;
 
     // Start is called before the first frame update
     void Awake()
     {
-        go = this.gameObject;
         currentState = _initialState;
         components = new Dictionary<Type, Component>();
     }
-
-    public GameObject GetGameObject() { return go; }
 
     public string StateToString()
     {
         return currentState.ToString();
     }
 
-    public BaseState currentState { get; set; }
+    public State currentState { get; set; }
 
     // Update is called once per frame
     void Update()

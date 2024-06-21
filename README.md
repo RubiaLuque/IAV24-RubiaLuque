@@ -296,7 +296,7 @@ Característica F: Máquinas de estados específicas de los fantasmas: paso entr
 |:-:|:--|:-:|
 | ✔️ | Diseño: Documentación inicial | 16-05-2024 |
 | ✔️ | Característica A: Creación del entorno: Nivel 1 y 2 | 27-05-2024 |
-| ✔️ | Característica B: Movimiento de la cámara y el personaje | 23-06-2024 |
+| ✔️ | Característica B: Movimiento de la cámara y el personaje | 23-05-2024 |
 | :x: | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | - |
 | ✔️ | Característica D: Sensores de vista y tacto | 18-06-2024 |
 | ✔️ | Característica E: Creación de FMS base dirigida por datos | 17-06-2024 |

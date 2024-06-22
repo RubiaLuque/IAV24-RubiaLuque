@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName = "FSM/Actions/Hide")]
 public class Hide : Action
 {
     bool done = false;

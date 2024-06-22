@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class MachineManager : MonoBehaviour
 {
-    public FSMDef definition;
+    //public FSMDef definition;
 
     private void Awake()
     {
@@ -38,10 +38,10 @@ public class MachineManager : MonoBehaviour
     {
         switch (name)
         {
-            case "PlayerInSIght":
+            case "PlayerInSight":
                 return new GhostSight();
 
-            case "TouchedByPlayer":
+            case "GhostTouched":
                 return new GhostTouch();
 
             default:

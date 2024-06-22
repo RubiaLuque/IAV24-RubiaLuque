@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "FSM/State")]
-public sealed class State : MonoBehaviour
+
+public sealed class State
 {
     //El modificador sealed hace que esta clase no pueda tener hijos
 

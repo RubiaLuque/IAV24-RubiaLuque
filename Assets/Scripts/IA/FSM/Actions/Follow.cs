@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName = "FSM/Actions/Follow")]
 public class Follow : Action
 {
     public override void Execute(BaseStateMachine m)

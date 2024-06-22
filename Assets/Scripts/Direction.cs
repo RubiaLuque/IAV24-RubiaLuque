@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Direction : MonoBehaviour
+public class Direction
 {
     public float angular;
     public Vector3 linear;

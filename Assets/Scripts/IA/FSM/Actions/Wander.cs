@@ -4,7 +4,6 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName ="FSM/Actions/Wander")]
 public class Wander : Action
 {
 

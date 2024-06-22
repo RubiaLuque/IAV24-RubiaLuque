@@ -10,11 +10,6 @@ public class CharacterMove : MonoBehaviour
     [SerializeField]
     float speed = 5f;
 
-    [SerializeField]
-    float rotationSpeed = 10f;
-
-    //https://www.youtube.com/watch?v=l90d4z5nVWI
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +19,6 @@ public class CharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 move;
-        
-    
         if (Input.GetKey(KeyCode.W))
         {
             transform.forward = Vector3.forward;

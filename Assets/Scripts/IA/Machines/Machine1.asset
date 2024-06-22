@@ -9,10 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81226ce120068d499025cca56b6dc91, type: 3}
-  m_Name: FollowAfterHideState
+  m_Script: {fileID: 11500000, guid: f50c330b48a335143bd8b9e74544cead, type: 3}
+  m_Name: Machine1
   m_EditorClassIdentifier: 
+  initialState: WanderState
+  idActions:
+  - WanderState
+  - FollowState
   actions:
-  - {fileID: 11400000, guid: 817649f65647a344ba2ec2c3c27161c3, type: 2}
-  transitions:
-  - {fileID: 11400000, guid: 97471e512e3fa074992970bfef4284e7, type: 2}
+  - WanderAction
+  - FollowAction
+  decisions:
+  - PlayerInSight
+  nextActions:
+  - FollowAction
+  previousActions:
+  - WanderAction

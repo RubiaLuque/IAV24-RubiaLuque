@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Action : MonoBehaviour
+public abstract class Action
 {
    public abstract void Execute(BaseStateMachine m);
 }

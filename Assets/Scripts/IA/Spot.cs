@@ -30,9 +30,9 @@ public class Spot : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<BaseStateMachine>() != null &&
-            other.GetComponent<BaseStateMachine>().StateToString() == "Follow" && !occupied)
+            other.GetComponent<BaseStateMachine>().StateToString() == "FollowState" && !occupied)
         {
-            occupied = false;
+            //occupied = false;
         }
     }
 }

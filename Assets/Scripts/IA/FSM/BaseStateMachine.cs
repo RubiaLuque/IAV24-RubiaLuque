@@ -6,8 +6,6 @@ using UnityEngine;
 public class BaseStateMachine : MonoBehaviour
 {
     public FSMDef definition;
-    private MachineManager machineManager;
-    //public State _initialState;
     private Dictionary<Type, Component> components;
     private Dictionary<string, State> states;
     public State currentState;
@@ -18,7 +16,6 @@ public class BaseStateMachine : MonoBehaviour
     {
         components = new Dictionary<Type, Component>();
         states = new Dictionary<string, State>();
-        machineManager = GameObject.Find("MachineManager").GetComponent<MachineManager>();
 
         for (int i = 0; i < definition.idActions.Count; ++i) //Se crean los estados y se guardan con su id
         {
@@ -70,4 +67,5 @@ public class BaseStateMachine : MonoBehaviour
         //Finalmente se devuelve
         return component;
     }
+
 }

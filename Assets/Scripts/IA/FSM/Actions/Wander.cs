@@ -17,8 +17,8 @@ public class Wander : Action
     //Solo se hace una vez al inicio, como no es Monobehaviour, hay que hacerlo a mano
     void SetVariables(BaseStateMachine m)
     {
-        wanderTimer = (float)Random.Range(5, 11);
-        wanderRadius = (float)Random.Range(2, 7);
+        wanderTimer = (float)Random.Range(2, 9);
+        wanderRadius = (float)Random.Range(2, 5);
         agent = m.GetComponent<NavMeshAgent>();
         timer = wanderTimer;
     }

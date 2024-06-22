@@ -1,96 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Wander : Action
 {
+    float wanderRadius;
+    float wanderTimer;
 
-    float tmpWander = 0f;
-    float tmpRot = 0f;
-    float tmpMaxRot = 1.0f;
-    float tmpMaxWander = 5.0f;
-    bool tReached = true;
-    float minDistance = 5.0f;
-    Vector3 targetPos = Vector3.zero;
-    float targetDistance;
-    Vector3 wanderDir = Vector3.zero;
-    float wanderRadius = 2.0f;
-    Rigidbody rb;
-    Transform transform;
+    private NavMeshAgent agent;
+    private float timer;
+    private bool done = false;
 
-    Direction dir;
+    //Solo se hace una vez al inicio, como no es Monobehaviour, hay que hacerlo a mano
+    void SetVariables(BaseStateMachine m)
+    {
+        wanderTimer = (float)Random.Range(5, 11);
+        wanderRadius = (float)Random.Range(2, 7);
+        agent = m.GetComponent<NavMeshAgent>();
+        timer = wanderTimer;
+    }
 
     public override void Execute(BaseStateMachine m)
     {
-        dir = new Direction();
-        rb = m.GetComponent<Rigidbody>();
-        transform = m.GetComponent<Transform>();
+        if (!done) { SetVariables(m); done = true; }
 
-        NavMeshAgent agent = m.GetComponent<NavMeshAgent>();
+        timer += Time.deltaTime;
 
-        dir.angular = 0f;
-        Vector3 auxDir = Vector3.zero;
-
-        if(tmpWander > tmpMaxWander || targetDistance < minDistance)
-        {
-            tReached = true;
-            float x = Random.Range(0.0f, 2.0f);
-            float z = Random.Range(0.0f, 2.0f);
-
-            wanderDir.x += x * RandSign();
-            wanderDir.z += z * RandSign();
-
-            wanderDir.Normalize();
-
-            Idle();
-
-            tmpWander = 0;
+        if(timer >= wanderTimer) {
+            Vector3 newTarget = RandomNavSphere(agent.transform.position, wanderRadius, -1);
+            agent.SetDestination(newTarget);
+            timer = 0;
         }
-
-        if (tReached)
-        {
-            tmpRot += Time.deltaTime;
-            if(tmpRot > tmpMaxRot)
-            {
-                targetPos = transform.position + wanderDir * wanderRadius;
-                tmpRot = 0;
-            }
-
-            ContinueMov();
-        }
-        else
-        {
-            wanderDir = (targetPos - transform.position).normalized;
-            tmpWander += Time.deltaTime;
-        }
-
-        targetDistance = (targetPos.magnitude - wanderDir.magnitude);
-
-        dir.linear = wanderDir;
-        
-        agent.SetDestination(dir.linear);
     }
 
-    int RandSign()
-    {
-        int signo = Random.Range(0, 2);
-        if (signo == 0) signo = -1;
-        return signo;
-    }
+    //Devuelve un punto en la malla de navegación que corresponda con un punto dado de manera aleatoria del interior de una esfera
 
-    void Idle()
+    public static Vector3 RandomNavSphere(Vector3 origin, float distance, int layermask)
     {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-    }
+        Vector3 randomDir = Random.insideUnitSphere * distance;
+        randomDir += origin;
+        NavMeshHit navHit; 
 
-    void ContinueMov()
-    {
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.constraints = RigidbodyConstraints.None;
+        NavMesh.SamplePosition(randomDir, out navHit, distance, layermask);
+
+        return navHit.position;
     }
 }
+

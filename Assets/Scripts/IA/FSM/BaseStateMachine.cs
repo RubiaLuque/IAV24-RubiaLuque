@@ -33,7 +33,7 @@ public class BaseStateMachine : MonoBehaviour
             t.decision = MachineManager.CreateDecision(definition.decisions[i]);
             t.state2 = states[definition.previousActions[i]];
             t.state1 = states[definition.nextActions[i]];
-            t.state2.transitions.Add(t);
+            t.state2.transitions.Add(t); //Se aniade la transicion al estaado
         }
 
         currentState = states[definition.initialState];

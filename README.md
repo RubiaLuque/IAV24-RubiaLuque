@@ -1,6 +1,11 @@
 
 # IAV - Fantasmitos al poder
 
+> [!IMPORTANT]
+> El documento de producción ha cambiado desde la primera entrega.
+
+<br>
+
 # IAV - Documento de Producción del Proyecto Final
 
 <br>
@@ -24,18 +29,18 @@ Los niveles 1 y 2 se diferencian en el número de fantasmas y la extensión del 
 <br>
 
 ## Punto de partida
-Se parte de un proyecto base de **Unity 2022.3.5f1** vacío al que se le han añadido los diferentes assets que se van a usar para los fantasmas o el entorno, así como la clase ```Merodeo``` de la Práctica 1. Por lo demás, todo se ha hecho desde cero. La práctica constará en la creación de una máquina de estados finita dirigida por datos de manera que actúe como base para crear diferentes máquinas de estados funcionales, en este caso, 2. Es decir, desde la misma FSM base poder crear dos (o incluso más) máquinas que funcionen independientemente, pero que compartan la misma base. Siendo esta misma base la parte funcional y de "motor". Por sí sola, la FSM base no ejecuta ningún estado o acción específico, siendo que estos se le pasan como datos.
+Se parte de un proyecto base de **Unity 2022.3.5f1** vacío al que se le han añadido los diferentes assets que se van a usar para los fantasmas o el entorno. Por lo demás, todo se ha hecho desde cero. La práctica constará en la creación de una máquina de estados finita dirigida por datos de manera que actúe como base para crear diferentes máquinas de estados funcionales, en este caso, 2. Es decir, desde la misma FSM base poder crear dos (o incluso más) máquinas que funcionen independientemente. Siendo esta misma base la parte funcional y de "motor". Por sí sola, la FSM base no ejecuta ningún estado o acción específico, siendo que estos se le pasan como datos mediante el script ```FSMDef```.
 
 Aunque no estaban implementadas antes de empezar el proyecto se puede considerar que la base de la práctica son los scripts de la máquina de estados finita dirigida por datos:
 
 - ```BaseStateMachine```: clase ejecutora de la máquina de estados que lleva cada agente que vaya a hacer uso de la misma.
-- ```BaseState```: define el estado base.
+- ```FMSDef```: definición de la máquina de estados
 - ```State```: define un estado abstracto.
 - ```Action```: define una acción que se lleva a cabo mientras se está en un estado. 
 - ```Decision```: define una decisión que debe cumplirse para cambiar de estado.
 - ```Transition```: se encarga de llevar a cabo los cambios en los estados en base a si se cumple o no la condición de la decisión.
 
-Menos ```BaseStateMachine```, todas las demás clases heredan de ScriptableObjects para así poder hacer que la máquina sea dirigida por datos.
+Solo ```BaseStateMachine``` hereda de MonoBehaviour y solo ```FSMDef``` lo hace de ScriptableObjects.
 
 <br><br>
 
@@ -251,6 +256,8 @@ class TouchSensor : MonoBehaviour
 
 Esta característica incluye el crear una máquina de estados base abstracta que actúe a modo de "caja negra" y que sea dirigida por datos. Es decir, que se caracterice por su versatilidad y capacidad de crear multitud de diferentes máquinas de estados, todas ellas construidas sobre una base sólida. El hecho de que sea dirigida por datos permite crear acciones, decisiones y transiciones que funcionen independientemente de cómo esté hecha la máquina, ya que esta actúa como motor. 
 
+> [!NOTE]
+> La máquina de estados, aunque es dirigida por datos, no usa reflexión de código propia de C#. En su lugar, se ha creado la clase ```MachineManager``` que se encarga de realizar un _new_ de cada clase que hereda de ```Action``` y ```Decision```, para cada fantasma. Lo negativo de esto es que para cada nueva acción o decisión que se quiera implementar en la máquina, hace falta añadirla al _switch case_ correspondiente de los métodos de ```MachineManager```.
 
 ![FinalUML](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/362fbe03-637b-4bcc-a97a-c35ff9fa80b2)
 
@@ -260,7 +267,10 @@ Esta característica incluye el crear una máquina de estados base abstracta que
 
 - <b>Característica F: Creación de acciones, transiciones y decisiones para los fantasmas</b>
 
-Para probar la versatilidad y capacidad de crear varios tipos de máquinas, se han creado dos máquinas distintas; una para cada tipo de fantasma para que cumplan los comportamientos descritos en la Propuesta.
+Para probar la versatilidad y capacidad de crear varios tipos de máquinas, se han creado dos máquinas distintas; una para cada tipo de fantasma para que cumplan los comportamientos descritos en la Propuesta. La clase ```FSMDef``` sirve para esto ya que se encarga de guardar los diferentes estados, todas las acciones que se deban tener en cuenta y las transiciones entre estados según el cumplimiento de una determinada condición. Para cada nueva máquina que se quiera hacer se debe crear un _.asset_ desde el Menú del Editor:
+
+> _RightClick_ --> Create --> FSM --> FSMDefinition
+
 Los fantasmas de Tipo I tienen una máquina de estados más sencilla que se muestra en el diagrama siguiente:
 
 ![Selector principal](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/1f3caee0-ec2a-419f-9f9c-1734c15b5917)

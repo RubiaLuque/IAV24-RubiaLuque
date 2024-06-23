@@ -81,7 +81,7 @@ Tanto la persecución como el merodeo y la huida son acciones de la máquina de 
 El fantasma persigue al jugador usando ```NavMeshSurface``` y ```NavMeshAgent``` para seguirlo esquivando obtáculos. Implícitamente se ejecuta el algoritmo A*. 
 
 ```
-class Follow : Action
+Follow : Action
 
     function: Execute(m = BaseStateMachine)
     
@@ -95,18 +95,85 @@ class Follow : Action
 
 <b>Merodeo</b>
 
-El fantasma merodea sin rumbo por la malla de navegación.
+El fantasma merodea sin rumbo por la malla de navegación. Se usa la funcionalidad de ```NavMeshAgent``` y, para ello, se coge un punto aleatorio dentro de una esfera y se traduce al plano de la malla.
 
 ```
-```
+class Wander : Action
 
+    float wanderRadius
+    float wanderTimer
+
+    private NavMeshAgent agent
+    private float timer
+    private bool done = false
+
+    # Solo se hace una vez al inicio, como no es Monobehaviour, hay que hacerlo a mano
+    void SetVariables(BaseStateMachine m)
+    
+        wanderTimer = (float)Random.Range(2, 9)
+        wanderRadius = (float)Random.Range(2, 5)
+        agent = m.GetComponent<NavMeshAgent>()
+        timer = wanderTimer
+    
+
+    function: Execute(BaseStateMachine m)
+    
+        ifnot done
+            SetVariables(m); done = true
+
+        timer += Time.deltaTime;
+
+        if timer >= wanderTimer 
+            Vector3 newTarget = RandomNavSphere(agent.transform.position, wanderRadius, -1)
+            agent.SetDestination(newTarget)
+            timer = 0
+        
+    
+
+    # Devuelve un punto en la malla de navegación que corresponda con un punto dado de manera aleatoria del interior de una esfera
+    static function: Vector3 RandomNavSphere(Vector3 origin, float distance, int layermask)
+    
+        Vector3 randomDir = Random.insideUnitSphere * distance
+        randomDir += origin
+        NavMeshHit navHit
+
+        NavMesh.SamplePosition(randomDir, out navHit, distance, layermask);
+
+        return navHit.position
+    
+
+```
 <br>
 
 <b>Huida</b>
 
-El fantasma huye del personaje y se dirige hacia un escondite que no esté ocupado por otro fantasma.
+El fantasma huye del personaje y se dirige hacia un escondite que no esté ocupado por otro fantasma. Para ello se elege aleatoriamente uno de los escondites registrados y no ocupado y se dirige hacia allí. Si en este recorrido o cuando ya ha llegado al punto de escondite el jugador lo toca, el fantasma pasará a perseguirle.
 
 ```
+class Hide : Action
+
+    bool done = false
+    Spot spot
+    Vector3 pos
+    float velocity = 5f
+
+    function: Execute(BaseStateMachine m)
+    
+        NavMeshAgent agent = m.GetComponent<NavMeshAgent>()
+        ifnot done DoOnce(agent)
+        agent.SetDestination(pos)
+    
+
+    # Este codigo solo se puede ejecutar 1 vez 
+    function: DoOnce(NavMeshAgent agent)
+    
+        HidingSpots spotH = GameObject.Find("HidingSpots").GetComponent<HidingSpots>()
+        spot = spotH.NextFreeSpot()
+        spot.SetOccupied(true) # Se asigna como ocupado justo al asignar dicho spot a un fantasma
+        pos = spot.transform.position
+        agent.velocity *= velocity
+        done = true
+
 ```
 
 <br>
@@ -120,13 +187,13 @@ El sensor de <b>vista</b> lo usan los fantasmas para saber si el jugador está o
 ```
 class SightSensor : MonoBehaviour
 
-    Transform playerTransform;
-    LayerMask layerToIgnore;
-    float maxDistance = 100;
-    float maxAngle = 60;
-    Ray raycast;
+    Transform playerTransform
+    LayerMask layerToIgnore
+    float maxDistance = 100
+    float maxAngle = 60
+    Ray raycast
 
-    // Start is called before the first frame update
+    # Start is called before the first frame update
     function: Awake()
     
         playerTransform = GameObject.Find("PLAYER").GetComponent<Transform>()     
@@ -137,15 +204,15 @@ class SightSensor : MonoBehaviour
         if playerTransform == null 
             return false
 
-        //Se crea un rayo desde la posicion del fantasma hasta el player y se obtiene la direccion y el angulo con
-        // su forward
+        # Se crea un rayo desde la posicion del fantasma hasta el player y se obtiene la direccion y el angulo con
+        # su forward
         raycast = new Ray(this.transform.position, playerTransform.position - this.transform.position)
 
         Vector3 direction = new Vector3(raycast.direction.x, 0,  raycast.direction.z)
 
         float rotation = Vector3.Angle(direction, this.transform.forward)
 
-        //Si el angulo es mayor que maxAngle no cuenta como que ha visto al jugador
+        # Si el angulo es mayor que maxAngle no cuenta como que ha visto al jugador
         if rotation > maxAngle 
             return false;
 
@@ -158,9 +225,24 @@ class SightSensor : MonoBehaviour
         return false
 ```
 
-El sensor de <b>tacto</b> se usa para saber si el jugador está tocando o no al propio fantasma.
+El sensor de <b>tacto</b> se usa para saber si el jugador está tocando o no al propio fantasma. Este sensor se usa en la huida del fantasma.
 
 ```
+class TouchSensor : MonoBehaviour
+
+    bool isPlayer = false;
+    private void OnTriggerEnter(Collider other)
+    
+        if other.GetComponentInChildren<CharacterMove>() != null
+            isPlayer = true;
+        
+
+        else
+            isPlayer = false;
+    
+
+    public bool IsPlayer() {  return isPlayer }
+
 ```
 
 <br>
@@ -170,7 +252,8 @@ El sensor de <b>tacto</b> se usa para saber si el jugador está tocando o no al 
 Esta característica incluye el crear una máquina de estados base abstracta que actúe a modo de "caja negra" y que sea dirigida por datos. Es decir, que se caracterice por su versatilidad y capacidad de crear multitud de diferentes máquinas de estados, todas ellas construidas sobre una base sólida. El hecho de que sea dirigida por datos permite crear acciones, decisiones y transiciones que funcionen independientemente de cómo esté hecha la máquina, ya que esta actúa como motor. 
 
 
-![IAV](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/d8f942a4-b99e-4bd4-b3a1-81762754dcad)
+![FinalUML](https://github.com/RubiaLuque/IAV24-RubiaLuque/assets/95546683/362fbe03-637b-4bcc-a97a-c35ff9fa80b2)
+
 
 
 <br>
@@ -297,17 +380,21 @@ Característica F: Máquinas de estados específicas de los fantasmas: paso entr
 | ✔️ | Diseño: Documentación inicial | 16-05-2024 |
 | ✔️ | Característica A: Creación del entorno: Nivel 1 y 2 | 27-05-2024 |
 | ✔️ | Característica B: Movimiento de la cámara y el personaje | 23-05-2024 |
-| :x: | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | - |
+| ✔️ | Característica C: Movimientos individuales: Persecución, Merodeo y Huida | 23-06-2024 |
 | ✔️ | Característica D: Sensores de vista y tacto | 18-06-2024 |
-| ✔️ | Característica E: Creación de FMS base dirigida por datos | 17-06-2024 |
-| :x: | Característica F: Creación de acciones, transiciones y decisiones para los fantasmas | - |
-| :x: | Diseño: Documentación final | - |
-| :x: | Vídeo | - |
-
-
-
+| ✔️ | Característica E: Creación de FMS base dirigida por datos | 22-06-2024 |
+| ✔️ | Característica F: Creación de acciones, transiciones y decisiones para los fantasmas | 22-06-2024 |
+| ✔️ | Diseño: Documentación final | 23-06-2024 |
+| ✔️ | Vídeo | 23-06-2024 |
 
 <br><br>
+
+## Video
+
+El vídeo con las pruebas se encuentra pulsando el siguiente [enlace.]()
+
+<br><br>
+
 
 ## Referencias
 

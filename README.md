@@ -1,5 +1,5 @@
 
-# IAV - Fantasmitos al poder
+# IAV - GHOST TOWN
 
 > [!IMPORTANT]
 > El documento de producción ha cambiado desde la primera entrega.
@@ -414,5 +414,6 @@ El vídeo con las pruebas se encuentra pulsando el siguiente [enlace.]()
 - [fsm-unity-article, GitHub repository](https://github.com/itsdikey/fsm-unity-article/tree/inital)
 - [Little Ghost lowpoly(FREE), SR Studios Kerala](https://assetstore.unity.com/packages/3d/characters/little-ghost-lowpoly-free-271926)
 - [FREE - Modular Character - Fantasy RPG Human Male](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/free-modular-character-fantasy-rpg-human-male-228952)
+- [Magic Effects FREE, Hovl Studios](https://assetstore.unity.com/packages/vfx/particles/spells/magic-effects-free-247933#publisher)
 
 

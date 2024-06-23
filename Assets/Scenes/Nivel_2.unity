@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1bfa8383c864d4193cda5d5358fa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numGhosts: 25
+  numGhosts: 20
   _text: {fileID: 607330887}
   chrono: {fileID: 626146764}
 --- !u!114 &38189148

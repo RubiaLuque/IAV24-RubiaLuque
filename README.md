@@ -1,5 +1,5 @@
 
-# IAV - Fantasmitos al poder
+# IAV - GHOST TOWN
 
 > [!IMPORTANT]
 > El documento de producción ha cambiado desde la primera entrega.

@@ -8,7 +8,7 @@ public class Hide : Action
     bool done = false;
     Spot spot;
     Vector3 pos;
-    float velocity = 10f;
+    float velocity = 5f;
     public override void Execute(BaseStateMachine m)
     {
         NavMeshAgent agent = m.GetComponent<NavMeshAgent>();

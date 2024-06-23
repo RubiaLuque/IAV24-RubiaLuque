@@ -2449,7 +2449,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1203008110}
   speed: 5
-  rotationSpeed: 100
 --- !u!4 &573965272
 Transform:
   m_ObjectHideFlags: 0
@@ -7715,9 +7714,9 @@ RectTransform:
   - {fileID: 962556877}
   m_Father: {fileID: 38189151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 430, y: -188}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -174, y: 51}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1902380629

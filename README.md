@@ -333,27 +333,19 @@ Característica C: Movimientos individuales: Persecución, Merodeo y Huida
     </tr>
 </table>
 <br>
-Característica D: Sensores de percepción y tacto de los fantasmas
+Característica D: Sensores de percepción y tacto de los fantasmas (más pruebas en Caraterística F)
 <table>
     <tr>
         <th><b>D.1</b></th>
         <th>Comprobar que los fantasmas ejecutan sus respectivas acciones al estar el jugador en su campo de visión.</th>
     </tr>
-    <tr>
-        <th><b>D.2</b></th>
-        <th>Comprobar que los fantasmas reconocen el toque del jugador con un mensaje por Debug.</th>
-    </tr>
 </table>
 <br>
-Característica E: Máquina de estados genérica y creación desde el Editor de Unity
+Característica E: Máquina de estados genérica
 <table>
     <tr>
         <th><b>E.1</b></th>
-        <th>Comprobación de etiquetas de creación de acciones, transiciones y estados desde el Menú de Unity.</th>
-    </tr>
-    <tr>
-        <th><b>E.2</b></th>
-        <th>Comprobación de creación de una máquina de estado específica desde el Editor de Unity.</th>
+        <th>Comprobación de etiqueta de creación de FSMDefinition desde el editor.</th>
     </tr>
 </table>
 <br>

@@ -8,8 +8,6 @@ using UnityEngine;
 
 public class MachineManager : MonoBehaviour
 {
-    //public FSMDef definition;
-
     private void Awake()
     {
         

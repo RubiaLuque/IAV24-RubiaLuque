@@ -24,14 +24,15 @@ public class SightSensor : MonoBehaviour
         // su forward
         raycast = new Ray(this.transform.position, playerTransform.position - this.transform.position);
         Vector3 direction = new Vector3(raycast.direction.x, 0,  raycast.direction.z);
+
         float rotation = Vector3.Angle(direction, this.transform.forward);
 
         //Si el angulo es mayor que maxAngle no cuenta como que ha visto al jugador
         if (rotation > maxAngle) return false;
 
-        if (!Physics.Raycast(raycast, out RaycastHit hit, maxDistance, ~layerToIgnore)) return false;
+        if (!Physics.Raycast(raycast, out RaycastHit hit, maxDistance, -1)) return false;
 
-        if (hit.collider.GetComponent<CharacterMove>() != null) return true;
+        if (hit.collider.GetComponent<CharacterMove>()) return true;
 
         return false;
     }

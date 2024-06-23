@@ -1204,7 +1204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2291182194523719576, guid: 95aa05ec0ea0a884ab92946b57d2c7b4, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -2291182194523719576, guid: 95aa05ec0ea0a884ab92946b57d2c7b4, type: 3}
       propertyPath: mask.m_Bits
@@ -1491,7 +1491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4338292228073781827, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4338292228073781827, guid: f6ab88624626d1249bd73bcb4a1c7d59, type: 3}
       propertyPath: mask.m_Bits
@@ -2586,7 +2586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8301378635426709598, guid: 36621476210b2c649b8aeea96b7c2587, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8301378635426709598, guid: 36621476210b2c649b8aeea96b7c2587, type: 3}
       propertyPath: mask.m_Bits
@@ -3045,7 +3045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3943734781416449564, guid: 5a796ed211b2cec468ecadad11acb207, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -3943734781416449564, guid: 5a796ed211b2cec468ecadad11acb207, type: 3}
       propertyPath: mask.m_Bits
@@ -3483,7 +3483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8301378635426709598, guid: 36621476210b2c649b8aeea96b7c2587, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8301378635426709598, guid: 36621476210b2c649b8aeea96b7c2587, type: 3}
       propertyPath: mask.m_Bits
@@ -3828,6 +3828,7 @@ GameObject:
   - component: {fileID: 968966767}
   - component: {fileID: 968966768}
   - component: {fileID: 968966770}
+  - component: {fileID: 968966771}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Player
@@ -3940,6 +3941,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &968966771
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968966763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1022321340
 GameObject:
   m_ObjectHideFlags: 0
@@ -5198,7 +5222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8423627873654115900, guid: b713585f24f940f4eadb10319818ef40, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -8423627873654115900, guid: b713585f24f940f4eadb10319818ef40, type: 3}
       propertyPath: mask.m_Bits
@@ -6458,7 +6482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7070743215356771241, guid: 855c90c429434444fbe3ca2b5507ab04, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7070743215356771241, guid: 855c90c429434444fbe3ca2b5507ab04, type: 3}
       propertyPath: mask.m_Bits
@@ -6520,7 +6544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3943734781416449564, guid: 5a796ed211b2cec468ecadad11acb207, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: -3943734781416449564, guid: 5a796ed211b2cec468ecadad11acb207, type: 3}
       propertyPath: mask.m_Bits
@@ -7889,7 +7913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6314427996717200612, guid: 4b5b08dfd84e3c342b10a4e2ed977d48, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6314427996717200612, guid: 4b5b08dfd84e3c342b10a4e2ed977d48, type: 3}
       propertyPath: mask.m_Bits
@@ -7998,7 +8022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6314427996717200612, guid: 4b5b08dfd84e3c342b10a4e2ed977d48, type: 3}
       propertyPath: maxAngle
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6314427996717200612, guid: 4b5b08dfd84e3c342b10a4e2ed977d48, type: 3}
       propertyPath: mask.m_Bits

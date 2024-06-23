@@ -291,7 +291,7 @@ Característica A: Creación del entorno: Nivel 1 y 2
 <table>
     <tr>
         <th><b>A.1</b></th>
-        <th>Dos niveles funcionales con 10 fantasmas el primero y 25 el segundo.</th>
+        <th>Dos niveles funcionales con 10 fantasmas el primero y 20 el segundo.</th>
     </tr>
      <tr>
         <th><b>A.2</b></th>

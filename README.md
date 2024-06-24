@@ -393,7 +393,7 @@ Característica F: Máquinas de estados específicas de los fantasmas: paso entr
 
 ## Video
 
-El vídeo con las pruebas se encuentra pulsando el siguiente [enlace.]()
+El vídeo con las pruebas se encuentra pulsando el siguiente [enlace.](https://youtu.be/MpuVWeRfOqk)
 
 <br><br>
 
